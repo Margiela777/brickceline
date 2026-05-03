@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>브릭셀린 영어학원 | Brickceline</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;color:#e8e8e8;}
+.app{max-width:420px;margin:0 auto;padding-bottom:2.5rem;}
+
+.hero{background:#185FA5;padding:1.4rem 1.2rem 1.2rem;position:relative;overflow:hidden;}
+.hero-deco{position:absolute;right:-20px;top:-20px;width:120px;height:120px;border-radius:50%;background:#0C447C;opacity:0.4;}
+.hero-deco2{position:absolute;right:20px;bottom:-30px;width:80px;height:80px;border-radius:50%;background:#378ADD;opacity:0.25;}
+.hero-tag{display:inline-block;background:#378ADD;color:#E6F1FB;font-size:10px;padding:3px 9px;border-radius:20px;margin-bottom:8px;letter-spacing:0.5px;position:relative;}
+.hero h1{color:#fff;font-size:21px;font-weight:500;line-height:1.3;position:relative;}
+.hero p{color:#B5D4F4;font-size:12px;margin-top:5px;position:relative;line-height:1.6;}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:1rem;position:relative;}
+.hstat{background:rgba(255,255,255,0.12);border-radius:10px;padding:8px 6px;text-align:center;}
+.hstat-n{color:#fff;font-size:17px;font-weight:500;}
+.hstat-l{color:#B5D4F4;font-size:10px;margin-top:2px;}
+
+.dark-section{background:#1a1a1a;padding:0.85rem 1rem 1rem;}
+.ds-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.7rem;}
+.ds-label{font-size:13px;font-weight:500;color:#4a9eff;}
+.ds-more{font-size:12px;color:#888;cursor:pointer;}
+
+.ncard{background:#2a2a2a;border-radius:12px;padding:0.8rem 1rem;margin-bottom:8px;cursor:pointer;border-left:3px solid transparent;transition:background 0.15s;}
+.ncard.highlight{border-left-color:#185FA5;border-radius:0 12px 12px 0;}
+.ncard:hover{background:#333;}
+.ntop{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+.nbadge{font-size:10px;padding:2px 9px;border-radius:20px;font-weight:500;}
+.nbadge.중요{background:#1e3a5f;color:#7ab8f5;}
+.nbadge.일반{background:#2a2a3a;color:#aaa;}
+.nbadge.수업{background:#1a3a1a;color:#7abf7a;}
+.new-dot{width:7px;height:7px;border-radius:50%;background:#e24b4a;margin-left:auto;flex-shrink:0;}
+.ntitle{font-size:13px;color:#e8e8e8;font-weight:500;}
+.ndate{font-size:11px;color:#666;}
+.nexpand{font-size:12px;color:#999;margin-top:7px;line-height:1.7;display:none;border-top:1px solid #383838;padding-top:8px;}
+.ncard.open .nexpand{display:block;}
+
+.sec-hdr{padding:0.9rem 1rem 0.4rem;background:#1a1a1a;}
+.sec-title{font-size:13px;font-weight:500;color:#4a9eff;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;padding:0.3rem 1rem 0.3rem;background:#1a1a1a;}
+.cal-nav-lbl{font-size:14px;font-weight:500;color:#e8e8e8;}
+.cal-btns{display:flex;gap:6px;}
+.cal-btn{background:#2a2a2a;border:0.5px solid #444;border-radius:7px;padding:3px 11px;cursor:pointer;font-size:13px;color:#7ab8f5;font-family:inherit;}
+.cal-btn:hover{background:#333;}
+.legend{display:flex;flex-wrap:wrap;gap:6px;padding:0.3rem 1rem 0.5rem;background:#1a1a1a;}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:#888;}
+.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.cal-wrap{padding:0 1rem;background:#1a1a1a;}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px;}
+.cdl{text-align:center;font-size:10px;color:#666;padding:2px 0;}
+.cdl.s{color:#e24b4a;} .cdl.sa{color:#4a9eff;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;padding-bottom:0.75rem;}
+.cc{min-height:52px;border-radius:8px;padding:3px 3px 2px;background:#2a2a2a;cursor:pointer;transition:background 0.1s;}
+.cc:hover{background:#333;}
+.cc.today{background:#0c2a4a;outline:1.5px solid #4a9eff;}
+.cc.sel{background:#0C447C;}
+.cc.sel .cdn{color:#B5D4F4;}
+.cdn{font-size:10px;font-weight:500;color:#666;text-align:right;padding-right:1px;}
+.cc.today .cdn{color:#4a9eff;}
+.cchips{display:flex;flex-direction:column;gap:1px;margin-top:2px;}
+.cch{font-size:8px;border-radius:3px;padding:1px 3px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500;}
+.detail-wrap{background:#1a1a1a;padding:0 1rem 1rem;}
+.detail-card{background:#2a2a2a;border-radius:14px;overflow:hidden;}
+.dhead{background:#0C447C;padding:0.65rem 1rem;display:flex;align-items:center;justify-content:space-between;}
+.dhead-date{color:#fff;font-size:13px;font-weight:500;}
+.dhead-cnt{color:#B5D4F4;font-size:12px;}
+.dbody{padding:0.4rem 0;}
+.srow{display:flex;align-items:center;gap:10px;padding:0.45rem 1rem;border-bottom:1px solid #383838;}
+.srow:last-child{border-bottom:none;}
+.savatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#fff;flex-shrink:0;}
+.sname{font-size:13px;color:#e8e8e8;flex:1;}
+.slevel{font-size:10px;color:#666;}
+.stime{font-size:11px;color:#4a9eff;background:#0c2a4a;padding:2px 8px;border-radius:10px;}
+.empty-msg{text-align:center;font-size:13px;color:#666;padding:1.2rem 0;}
+.admin-link{text-align:center;padding:1rem 0 0;background:#1a1a1a;}
+.admin-link a{font-size:11px;color:#333;text-decoration:none;}
+.admin-link a:hover{color:#555;}
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-deco2"></div>
+  <div class="hero-tag" id="heroTag"></div>
+  <h1 id="heroTitle"></h1>
+  <p id="heroTagline"></p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n" id="statMakeup">5</div><div class="hstat-l">보강 테스트</div></div>
+    <div class="hstat"><div class="hstat-n" id="statRetest">1</div><div class="hstat-l">재시험 테스트</div></div>
+    <div class="hstat"><div class="hstat-n" id="statNotice">-</div><div class="hstat-l">공지사항</div></div>
+  </div>
+</div>
+
+<div class="dark-section">
+  <div class="ds-top">
+    <span class="ds-label">공지사항</span>
+    <span class="ds-more">전체보기 →</span>
+  </div>
+  <div id="notice-list"></div>
+</div>
+
+<div class="sec-hdr"><span class="sec-title">학생 스케줄</span></div>
+<div class="cal-nav">
+  <div class="cal-nav-lbl" id="month-lbl"></div>
+  <div class="cal-btns">
+    <button class="cal-btn" id="pb">‹</button>
+    <button class="cal-btn" id="nb">›</button>
+  </div>
+</div>
+<div class="legend" id="legend"></div>
+<div class="cal-wrap">
+  <div class="cal-days">
+    <div class="cdl s">일</div><div class="cdl">월</div><div class="cdl">화</div>
+    <div class="cdl">수</div><div class="cdl">목</div><div class="cdl">금</div><div class="cdl sa">토</div>
+  </div>
+  <div class="cal-grid" id="cal"></div>
+</div>
+<div class="detail-wrap">
+  <div class="detail-card">
+    <div class="dhead">
+      <span class="dhead-date" id="ddate">날짜를 선택하세요</span>
+      <span class="dhead-cnt" id="dcnt"></span>
+    </div>
+    <div class="dbody" id="dbody"><div class="empty-msg">날짜를 탭하면 수업 학생을 확인해요</div></div>
+  </div>
+</div>
+<div class="admin-link"><a href="admin.html">🔒 관리자</a></div>
+
+</div>
+<script src="data.js"></script>
+<script>
+document.getElementById('heroTag').textContent = ACADEMY.nameEn;
+document.getElementById('heroTitle').textContent = ACADEMY.name;
+document.getElementById('heroTagline').textContent = ACADEMY.tagline;
+document.getElementById('statNotice').textContent = NOTICES.length;
+
+const nl = document.getElementById('notice-list');
+NOTICES.forEach((n, i) => {
+  const el = document.createElement('div');
+  el.className = 'ncard' + (i === 0 ? ' highlight open' : '');
+  el.innerHTML = `
+    <div class="ntop">
+      <span class="nbadge ${n.badge}">${n.badge}</span>
+      <span class="ntitle">${n.title}</span>
+      ${n.isNew ? '<span class="new-dot"></span>' : ''}
+    </div>
+    <div class="ndate">${n.date}</div>
+    <div class="nexpand">${n.content}</div>`;
+  el.addEventListener('click', () => el.classList.toggle('open'));
+  nl.appendChild(el);
+});
+
+let cur = { y: 2026, m: 4 }, selD = null;
+
+function buildLegend() {
+  document.getElementById('legend').innerHTML = STUDENTS.map(s =>
+    `<div class="leg-item"><div class="leg-dot" style="background:${s.color};"></div>${s.name}</div>`
+  ).join('');
+}
+function dayName(y,m,d){return['일','월','화','수','목','금','토'][new Date(y,m-1,d).getDay()];}
+function renderCal() {
+  const g = document.getElementById('cal');
+  g.innerHTML = '';
+  const first = new Date(cur.y,cur.m-1,1).getDay();
+  const total = new Date(cur.y,cur.m,0).getDate();
+  const td = new Date();
+  for(let i=0;i<first;i++) g.appendChild(document.createElement('div'));
+  for(let d=1;d<=total;d++){
+    const k=`${cur.y}-${cur.m}-${d}`;
+    const el=document.createElement('div'); el.className='cc';
+    if(td.getFullYear()===cur.y&&td.getMonth()===cur.m-1&&td.getDate()===d) el.classList.add('today');
+    if(selD===d) el.classList.add('sel');
+    const dn=document.createElement('div'); dn.className='cdn'; dn.textContent=d; el.appendChild(dn);
+    const ss=SCHEDULE[k]||[];
+    if(ss.length){
+      const ch=document.createElement('div'); ch.className='cchips';
+      ss.slice(0,3).forEach(s=>{
+        const c=document.createElement('div'); c.className='cch';
+        c.style.background=STUDENTS[s[0]].color;
+        c.textContent=STUDENTS[s[0]].name.slice(0,3);
+        ch.appendChild(c);
+      });
+      if(ss.length>3){const mo=document.createElement('div');mo.className='cch';mo.style.background='#555';mo.textContent='+'+(ss.length-3);ch.appendChild(mo);}
+      el.appendChild(ch);
+    }
+    el.addEventListener('click',()=>{selD=d;renderCal();showDetail(k,d);});
+    g.appendChild(el);
+  }
+  document.getElementById('month-lbl').textContent=`${cur.y}년 ${cur.m}월`;
+}
+function showDetail(k,d){
+  const ss=SCHEDULE[k]||[];
+  document.getElementById('ddate').textContent=`${cur.m}월 ${d}일 (${dayName(cur.y,cur.m,d)})`;
+  document.getElementById('dcnt').textContent=ss.length?`수업 ${ss.length}명`:'수업 없음';
+  const body=document.getElementById('dbody');
+  if(!ss.length){body.innerHTML='<div class="empty-msg">수업이 없는 날이에요</div>';return;}
+  body.innerHTML=ss.map(s=>`
+    <div class="srow">
+      <div class="savatar" style="background:${STUDENTS[s[0]].color};">${STUDENTS[s[0]].name[0]}</div>
+      <span class="sname">${STUDENTS[s[0]].name}</span>
+      <span class="slevel">${STUDENTS[s[0]].level}</span>
+      <span class="stime">${s[1]}</span>
+    </div>`).join('');
+}
+function resetDetail(){
+  selD=null;
+  document.getElementById('ddate').textContent='날짜를 선택하세요';
+  document.getElementById('dcnt').textContent='';
+  document.getElementById('dbody').innerHTML='<div class="empty-msg">날짜를 탭하면 수업 학생을 확인해요</div>';
+}
+document.getElementById('pb').addEventListener('click',()=>{cur.m--;if(cur.m<1){cur.m=12;cur.y--;}resetDetail();renderCal();});
+document.getElementById('nb').addEventListener('click',()=>{cur.m++;if(cur.m>12){cur.m=1;cur.y++;}resetDetail();renderCal();});
+buildLegend(); renderCal();
+</script>
+</body>
+</html>
