@@ -24,34 +24,42 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
 .admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
 .admin-header h1{font-size:16px;font-weight:500;color:#4a9eff;}
 .logout-btn{background:#2a2a2a;border:1px solid #444;border-radius:8px;padding:5px 14px;color:#aaa;font-size:12px;cursor:pointer;font-family:inherit;}
-.logout-btn:hover{background:#333;}
 
 .section{background:#1a1a1a;border-radius:14px;padding:1.2rem;margin-bottom:1.2rem;}
-.section-title{font-size:13px;font-weight:500;color:#4a9eff;margin-bottom:1rem;}
+.section-title{font-size:13px;font-weight:500;margin-bottom:1rem;}
+.section-title.blue{color:#60a5fa;}
+.section-title.red{color:#f87171;}
+.section-title.gray{color:#4a9eff;}
 
 .form-row{display:grid;gap:8px;margin-bottom:10px;}
 .form-row.cols2{grid-template-columns:1fr 1fr;}
-.form-row.cols3{grid-template-columns:1fr 1fr 1fr;}
 .flabel{font-size:11px;color:#888;margin-bottom:3px;display:block;}
 .finput,.fselect{width:100%;background:#2a2a2a;border:1px solid #444;border-radius:8px;padding:0.55rem 0.75rem;color:#e8e8e8;font-size:13px;font-family:inherit;outline:none;}
 .finput:focus,.fselect:focus{border-color:#4a9eff;}
-.add-btn{background:#185FA5;border:none;border-radius:8px;padding:0.55rem 1.2rem;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;}
-.add-btn:hover{background:#1470C0;}
+
+.add-btn{border:none;border-radius:8px;padding:0.55rem 1.2rem;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;}
+.add-btn.blue{background:#2563EB;} .add-btn.blue:hover{background:#1d4ed8;}
+.add-btn.red{background:#DC2626;} .add-btn.red:hover{background:#b91c1c;}
+.add-btn.navy{background:#185FA5;} .add-btn.navy:hover{background:#1470C0;}
+.add-btn.green{background:#0F6E56;width:100%;margin-top:8px;} .add-btn.green:hover{background:#0d5c47;}
+
 .del-btn{background:#2a2a2a;border:1px solid #555;border-radius:6px;padding:3px 10px;color:#e24b4a;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;}
 .del-btn:hover{background:#3a1a1a;}
 
 .item-list{margin-top:0.75rem;display:flex;flex-direction:column;gap:6px;}
-.item-row{background:#2a2a2a;border-radius:10px;padding:0.6rem 0.8rem;display:flex;align-items:center;gap:8px;}
-.item-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.item-row{background:#2a2a2a;border-radius:10px;padding:0.6rem 0.8rem;display:flex;align-items:center;gap:8px;border-left:3px solid transparent;}
+.item-row.blue{border-left-color:#2563EB;}
+.item-row.red{border-left-color:#DC2626;}
+.item-row.navy{border-left-color:#4a9eff;}
 .item-text{flex:1;font-size:13px;color:#e8e8e8;}
 .item-sub{font-size:11px;color:#666;}
-.item-badge{font-size:10px;padding:2px 8px;border-radius:12px;background:#1e3a5f;color:#7ab8f5;white-space:nowrap;}
+.pill-sm{font-size:10px;padding:2px 8px;border-radius:12px;}
+.pill-sm.blue{background:#1e3a6e;color:#60a5fa;}
+.pill-sm.red{background:#4a1515;color:#f87171;}
+
 .divider{border:none;border-top:1px solid #333;margin:0.75rem 0;}
 .back-link{text-align:center;margin-top:1rem;}
 .back-link a{font-size:12px;color:#555;text-decoration:none;}
-.back-link a:hover{color:#888;}
-.copy-btn{width:100%;margin-top:8px;background:#0F6E56;border:none;border-radius:8px;padding:0.6rem;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;}
-.copy-btn:hover{background:#0d5c47;}
 </style>
 </head>
 <body>
@@ -75,13 +83,43 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
 
 <div class="admin-wrap" id="adminWrap">
   <div class="admin-header">
-    <h1>🛠 관리자 페이지 — Brickceline</h1>
+    <h1>🛠 관리자 — Brickceline</h1>
     <button class="logout-btn" onclick="doLogout()">로그아웃</button>
+  </div>
+
+  <!-- 보강 테스트 -->
+  <div class="section">
+    <div class="section-title blue">🔵 보강 테스트 학생 관리</div>
+    <div class="form-row">
+      <div>
+        <label class="flabel">학생 이름</label>
+        <input class="finput" type="text" id="makeupName" placeholder="학생 이름 입력"
+          onkeydown="if(event.key==='Enter')addMakeup()">
+      </div>
+    </div>
+    <button class="add-btn blue" onclick="addMakeup()">+ 보강 학생 추가</button>
+    <hr class="divider">
+    <div class="item-list" id="makeupList"></div>
+  </div>
+
+  <!-- 재시험 테스트 -->
+  <div class="section">
+    <div class="section-title red">🔴 재시험 테스트 학생 관리</div>
+    <div class="form-row">
+      <div>
+        <label class="flabel">학생 이름</label>
+        <input class="finput" type="text" id="retestName" placeholder="학생 이름 입력"
+          onkeydown="if(event.key==='Enter')addRetest()">
+      </div>
+    </div>
+    <button class="add-btn red" onclick="addRetest()">+ 재시험 학생 추가</button>
+    <hr class="divider">
+    <div class="item-list" id="retestList"></div>
   </div>
 
   <!-- 공지사항 -->
   <div class="section">
-    <div class="section-title">📢 공지사항 관리</div>
+    <div class="section-title gray">📢 공지사항 관리</div>
     <div class="form-row cols2">
       <div>
         <label class="flabel">분류</label>
@@ -99,94 +137,46 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
     <div class="form-row">
       <div>
         <label class="flabel">제목</label>
-        <input class="finput" type="text" id="nTitle" placeholder="공지 제목을 입력하세요">
+        <input class="finput" type="text" id="nTitle" placeholder="공지 제목">
       </div>
     </div>
     <div class="form-row">
       <div>
         <label class="flabel">내용</label>
-        <input class="finput" type="text" id="nContent" placeholder="공지 내용을 입력하세요">
+        <input class="finput" type="text" id="nContent" placeholder="공지 내용">
       </div>
     </div>
-    <button class="add-btn" onclick="addNotice()">+ 공지 추가</button>
+    <button class="add-btn navy" onclick="addNotice()">+ 공지 추가</button>
     <hr class="divider">
     <div class="item-list" id="noticeList"></div>
   </div>
 
-  <!-- 학생 -->
-  <div class="section">
-    <div class="section-title">👤 학생 관리</div>
-    <div class="form-row cols3">
-      <div>
-        <label class="flabel">이름</label>
-        <input class="finput" type="text" id="sName" placeholder="홍길동">
-      </div>
-      <div>
-        <label class="flabel">레벨</label>
-        <select class="fselect" id="sLevel">
-          <option>Basic</option>
-          <option>Inter</option>
-          <option>Adv</option>
-        </select>
-      </div>
-      <div>
-        <label class="flabel">색상</label>
-        <input class="finput" type="color" id="sColor" value="#185FA5" style="padding:4px;cursor:pointer;height:38px;">
-      </div>
-    </div>
-    <button class="add-btn" onclick="addStudent()">+ 학생 추가</button>
-    <hr class="divider">
-    <div class="item-list" id="studentList"></div>
-  </div>
-
-  <!-- 스케줄 -->
-  <div class="section">
-    <div class="section-title">📅 수업 스케줄 관리</div>
-    <div class="form-row cols3">
-      <div>
-        <label class="flabel">날짜</label>
-        <input class="finput" type="date" id="scDate">
-      </div>
-      <div>
-        <label class="flabel">학생</label>
-        <select class="fselect" id="scStudent"></select>
-      </div>
-      <div>
-        <label class="flabel">시간</label>
-        <input class="finput" type="time" id="scTime" value="14:00">
-      </div>
-    </div>
-    <button class="add-btn" onclick="addSchedule()">+ 수업 추가</button>
-    <hr class="divider">
-    <div class="item-list" id="scheduleList"></div>
-  </div>
-
   <!-- 내보내기 -->
   <div class="section">
-    <div class="section-title">📋 data.js 코드 내보내기</div>
+    <div class="section-title gray">📋 data.js 내보내기</div>
     <p style="font-size:12px;color:#888;margin-bottom:0.75rem;">
-      ① 아래 코드를 복사 → ② VSCode에서 data.js 열기 → ③ 전체 선택(⌘A) 후 붙여넣기(⌘V) → ④ 저장(⌘S)
+      ① 복사 → ② VSCode에서 data.js 열기 → ③ ⌘A → ④ ⌘V → ⑤ ⌘S → ⑥ GitHub 업로드
     </p>
     <textarea id="exportCode" readonly
-      style="width:100%;height:200px;background:#0a0a0a;border:1px solid #333;border-radius:8px;padding:0.75rem;color:#7ab8f5;font-size:11px;font-family:monospace;resize:vertical;outline:none;"></textarea>
-    <button class="copy-btn" onclick="copyCode()">📋 클립보드에 복사하기</button>
+      style="width:100%;height:220px;background:#0a0a0a;border:1px solid #333;border-radius:8px;padding:0.75rem;color:#7ab8f5;font-size:11px;font-family:monospace;resize:vertical;outline:none;"></textarea>
+    <button class="add-btn green" onclick="copyCode()">📋 클립보드에 복사하기</button>
   </div>
 
-  <div class="back-link"><a href="index.html">← 학원 홈으로 돌아가기</a></div>
+  <div class="back-link"><a href="index.html">← 학원 홈으로</a></div>
 </div>
 
 <script src="data.js"></script>
 <script>
-let localStudents = JSON.parse(JSON.stringify(STUDENTS));
-let localNotices  = JSON.parse(JSON.stringify(NOTICES));
-let localSchedule = JSON.parse(JSON.stringify(SCHEDULE));
+let localMakeup  = JSON.parse(JSON.stringify(MAKEUP_STUDENTS));
+let localRetest  = JSON.parse(JSON.stringify(RETEST_STUDENTS));
+let localNotices = JSON.parse(JSON.stringify(NOTICES));
 
 function doLogin() {
-  const pw = document.getElementById('pwInput').value;
-  if (pw === ACADEMY.adminPassword) {
+  if (document.getElementById('pwInput').value === ACADEMY.adminPassword) {
     document.getElementById('loginWrap').style.display = 'none';
     document.getElementById('adminWrap').style.display = 'block';
-    initAdmin();
+    document.getElementById('nDate').value = new Date().toISOString().slice(0,10);
+    renderAll();
   } else {
     document.getElementById('loginErr').style.display = 'block';
   }
@@ -197,101 +187,71 @@ function doLogout() {
   document.getElementById('pwInput').value = '';
   document.getElementById('loginErr').style.display = 'none';
 }
-function initAdmin() {
-  const today = new Date().toISOString().slice(0,10);
-  document.getElementById('nDate').value = today;
-  document.getElementById('scDate').value = today;
+function renderAll() { renderMakeup(); renderRetest(); renderNotices(); exportCode(); }
+
+// 보강
+function renderMakeup() {
+  document.getElementById('makeupList').innerHTML = localMakeup.length
+    ? localMakeup.map((s,i) => `
+        <div class="item-row blue">
+          <span class="pill-sm blue">보강</span>
+          <div class="item-text">${s.name}</div>
+          <button class="del-btn" onclick="delMakeup(${i})">삭제</button>
+        </div>`).join('')
+    : '<div style="font-size:12px;color:#555;padding:4px;">등록된 학생이 없습니다.</div>';
+}
+function addMakeup() {
+  const name = document.getElementById('makeupName').value.trim();
+  if (!name) { alert('이름을 입력하세요.'); return; }
+  localMakeup.push({ name });
+  document.getElementById('makeupName').value = '';
   renderAll();
 }
-function renderAll() {
-  renderNotices(); renderStudents(); renderSchedule();
-  updateStudentSelect(); exportCode();
+function delMakeup(i) { if (!confirm('삭제하시겠습니까?')) return; localMakeup.splice(i,1); renderAll(); }
+
+// 재시험
+function renderRetest() {
+  document.getElementById('retestList').innerHTML = localRetest.length
+    ? localRetest.map((s,i) => `
+        <div class="item-row red">
+          <span class="pill-sm red">재시험</span>
+          <div class="item-text">${s.name}</div>
+          <button class="del-btn" onclick="delRetest(${i})">삭제</button>
+        </div>`).join('')
+    : '<div style="font-size:12px;color:#555;padding:4px;">등록된 학생이 없습니다.</div>';
 }
+function addRetest() {
+  const name = document.getElementById('retestName').value.trim();
+  if (!name) { alert('이름을 입력하세요.'); return; }
+  localRetest.push({ name });
+  document.getElementById('retestName').value = '';
+  renderAll();
+}
+function delRetest(i) { if (!confirm('삭제하시겠습니까?')) return; localRetest.splice(i,1); renderAll(); }
 
 // 공지
 function renderNotices() {
-  const el = document.getElementById('noticeList');
-  el.innerHTML = localNotices.length
+  document.getElementById('noticeList').innerHTML = localNotices.length
     ? localNotices.map((n,i) => `
-        <div class="item-row">
-          <span class="item-badge">${n.badge}</span>
+        <div class="item-row navy">
+          <span class="pill-sm blue">${n.badge}</span>
           <div class="item-text">${n.title}<div class="item-sub">${n.date}</div></div>
           <button class="del-btn" onclick="delNotice(${i})">삭제</button>
         </div>`).join('')
-    : '<div style="font-size:12px;color:#555;padding:4px;">공지사항이 없습니다.</div>';
+    : '<div style="font-size:12px;color:#555;padding:4px;">공지가 없습니다.</div>';
 }
 function addNotice() {
   const badge   = document.getElementById('nBadge').value;
-  const dateVal = document.getElementById('nDate').value;
+  const date    = document.getElementById('nDate').value.replace(/-/g,'.');
   const title   = document.getElementById('nTitle').value.trim();
   const content = document.getElementById('nContent').value.trim();
   if (!title) { alert('제목을 입력하세요.'); return; }
-  localNotices.unshift({ id: Date.now(), badge, title, date: dateVal.replace(/-/g,'.'), content, isNew: true });
+  localNotices.unshift({ id: Date.now(), badge, title, date, content, isNew: true });
   document.getElementById('nTitle').value = '';
   document.getElementById('nContent').value = '';
   renderAll();
 }
-function delNotice(i) { if(!confirm('삭제하시겠습니까?'))return; localNotices.splice(i,1); renderAll(); }
-
-// 학생
-function renderStudents() {
-  const el = document.getElementById('studentList');
-  el.innerHTML = localStudents.length
-    ? localStudents.map((s,i) => `
-        <div class="item-row">
-          <div class="item-dot" style="background:${s.color};"></div>
-          <div class="item-text">${s.name}<div class="item-sub">${s.level}</div></div>
-          <button class="del-btn" onclick="delStudent(${i})">삭제</button>
-        </div>`).join('')
-    : '<div style="font-size:12px;color:#555;padding:4px;">학생이 없습니다.</div>';
-}
-function addStudent() {
-  const name  = document.getElementById('sName').value.trim();
-  const level = document.getElementById('sLevel').value;
-  const color = document.getElementById('sColor').value;
-  if (!name) { alert('이름을 입력하세요.'); return; }
-  localStudents.push({ name, level, color });
-  document.getElementById('sName').value = '';
-  renderAll();
-}
-function delStudent(i) { if(!confirm('삭제하시겠습니까?'))return; localStudents.splice(i,1); renderAll(); }
-function updateStudentSelect() {
-  document.getElementById('scStudent').innerHTML =
-    localStudents.map((s,i)=>`<option value="${i}">${s.name}</option>`).join('');
-}
-
-// 스케줄
-function renderSchedule() {
-  const el = document.getElementById('scheduleList');
-  const entries = Object.entries(localSchedule).sort((a,b)=>a[0].localeCompare(b[0])).slice(-12);
-  el.innerHTML = entries.length
-    ? entries.map(([k,arr]) =>
-        arr.map((s,si)=>`
-          <div class="item-row">
-            <div class="item-dot" style="background:${localStudents[s[0]]?.color||'#555'};"></div>
-            <div class="item-text">${localStudents[s[0]]?.name||'?'} — ${s[1]}<div class="item-sub">${k}</div></div>
-            <button class="del-btn" onclick="delSchedule('${k}',${si})">삭제</button>
-          </div>`).join('')
-      ).join('')
-    : '<div style="font-size:12px;color:#555;padding:4px;">스케줄이 없습니다.</div>';
-}
-function addSchedule() {
-  const dateVal = document.getElementById('scDate').value;
-  const si      = parseInt(document.getElementById('scStudent').value);
-  const time    = document.getElementById('scTime').value;
-  if (!dateVal) { alert('날짜를 선택하세요.'); return; }
-  const p = dateVal.split('-');
-  const key = `${p[0]}-${parseInt(p[1])}-${parseInt(p[2])}`;
-  if (!localSchedule[key]) localSchedule[key] = [];
-  localSchedule[key].push([si, time]);
-  renderAll();
-}
-function delSchedule(key, si) {
-  if(!confirm('삭제하시겠습니까?'))return;
-  localSchedule[key].splice(si,1);
-  if(!localSchedule[key].length) delete localSchedule[key];
-  renderAll();
-}
+function delNotice(i) { if (!confirm('삭제하시겠습니까?')) return; localNotices.splice(i,1); renderAll(); }
 
 // 내보내기
 function exportCode() {
@@ -307,16 +267,17 @@ const ACADEMY = {
   adminPassword: "${ACADEMY.adminPassword}"
 };
 
-const STUDENTS = ${JSON.stringify(localStudents, null, 2)};
+const MAKEUP_STUDENTS = ${JSON.stringify(localMakeup, null, 2)};
 
-const NOTICES = ${JSON.stringify(localNotices, null, 2)};
+const RETEST_STUDENTS = ${JSON.stringify(localRetest, null, 2)};
 
-const SCHEDULE = ${JSON.stringify(localSchedule, null, 2)};`;
+const NOTICES = ${JSON.stringify(localNotices, null, 2)};`;
 }
+
 function copyCode() {
   const ta = document.getElementById('exportCode');
   ta.select(); document.execCommand('copy');
-  alert('복사 완료! VSCode에서 data.js를 열고\n전체선택(⌘A) → 붙여넣기(⌘V) → 저장(⌘S) 하세요.');
+  alert('복사 완료!\nVSCode에서 data.js 열기 → ⌘A → ⌘V → ⌘S\n그 다음 GitHub에 업로드하세요.');
 }
 </script>
 </body>
