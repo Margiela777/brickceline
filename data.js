@@ -1,5 +1,6 @@
 // ============================================================
 //  Brickceline 영어학원 데이터 파일
+//  ✅ 이 파일만 수정하면 사이트 전체에 반영됩니다.
 // ============================================================
 
 const ACADEMY = {
@@ -9,7 +10,7 @@ const ACADEMY = {
   adminPassword: "2548"
 };
 
-// 보강 테스트 학생 (파란색)
+// 보강 테스트 학생 목록 (파란색)
 const MAKEUP_STUDENTS = [
   { name: "김민준" },
   { name: "이서연" },
@@ -18,7 +19,7 @@ const MAKEUP_STUDENTS = [
   { name: "정하은" }
 ];
 
-// 재시험 테스트 학생 (빨간색)
+// 재시험 테스트 학생 목록 (빨간색)
 const RETEST_STUDENTS = [
   { name: "강도현" }
 ];
@@ -58,3 +59,24 @@ const NOTICES = [
     isNew: false
   }
 ];
+
+// 수업 스케줄
+// type: "makeup"(보강-파란색) | "retest"(재시험-빨간색)
+const SCHEDULE = {
+  "2026-4-7":  [{name:"김민준",type:"makeup",time:"14:00"},{name:"이서연",type:"makeup",time:"15:00"}],
+  "2026-4-8":  [{name:"강도현",type:"retest",time:"14:00"},{name:"최수아",type:"makeup",time:"15:30"}],
+  "2026-4-9":  [{name:"김민준",type:"makeup",time:"14:00"},{name:"박지호",type:"makeup",time:"15:00"}],
+  "2026-4-10": [{name:"이서연",type:"makeup",time:"14:00"},{name:"강도현",type:"retest",time:"15:00"},{name:"최수아",type:"makeup",time:"16:00"}],
+  "2026-4-14": [{name:"정하은",type:"makeup",time:"14:00"},{name:"김민준",type:"makeup",time:"16:00"}],
+  "2026-4-15": [{name:"박지호",type:"makeup",time:"15:00"},{name:"이서연",type:"makeup",time:"16:00"}],
+  "2026-4-16": [{name:"강도현",type:"retest",time:"14:30"},{name:"최수아",type:"makeup",time:"15:30"}],
+  "2026-4-17": [{name:"김민준",type:"makeup",time:"14:00"},{name:"정하은",type:"makeup",time:"15:00"},{name:"강도현",type:"retest",time:"16:30"}],
+  "2026-4-21": [{name:"이서연",type:"makeup",time:"14:00"},{name:"박지호",type:"makeup",time:"15:00"}],
+  "2026-4-22": [{name:"강도현",type:"retest",time:"14:00"},{name:"김민준",type:"makeup",time:"16:00"}],
+  "2026-4-23": [{name:"정하은",type:"makeup",time:"14:00"},{name:"강도현",type:"retest",time:"15:30"}],
+  "2026-4-24": [{name:"김민준",type:"makeup",time:"14:00"},{name:"이서연",type:"makeup",time:"15:00"},{name:"최수아",type:"makeup",time:"16:00"}],
+  "2026-4-25": [{name:"박지호",type:"makeup",time:"14:00"}],
+  "2026-4-28": [{name:"강도현",type:"retest",time:"15:00"},{name:"정하은",type:"makeup",time:"16:00"}],
+  "2026-4-29": [{name:"김민준",type:"makeup",time:"14:00"},{name:"이서연",type:"makeup",time:"15:00"}],
+  "2026-4-30": [{name:"박지호",type:"makeup",time:"14:30"},{name:"최수아",type:"makeup",time:"15:30"},{name:"강도현",type:"retest",time:"16:30"}]
+};
