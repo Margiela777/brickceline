@@ -27,7 +27,6 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
 .ds-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.7rem;}
 .ds-label{font-size:13px;font-weight:500;color:#4a9eff;}
 .ds-more{font-size:12px;color:#888;cursor:pointer;}
-
 .ncard{background:#2a2a2a;border-radius:12px;padding:0.8rem 1rem;margin-bottom:8px;cursor:pointer;border-left:3px solid transparent;transition:background 0.15s;}
 .ncard.highlight{border-left-color:#185FA5;border-radius:0 12px 12px 0;}
 .ncard:hover{background:#333;}
@@ -42,31 +41,57 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
 .nexpand{font-size:12px;color:#999;margin-top:7px;line-height:1.7;display:none;border-top:1px solid #383838;padding-top:8px;}
 .ncard.open .nexpand{display:block;}
 
-/* 학생 스케줄 영역 */
-.schedule-section{background:#1a1a1a;margin-top:2px;padding:0.9rem 1rem 1.2rem;}
-.schedule-top{display:flex;align-items:center;gap:10px;margin-bottom:1rem;flex-wrap:wrap;}
-.schedule-title{font-size:13px;font-weight:500;color:#4a9eff;margin-right:4px;}
-.pill{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;}
+/* 학생 스케줄 섹션 */
+.schedule-section{background:#1a1a1a;padding:0.9rem 1rem 0;}
+
+/* 달력 헤더 */
+.cal-header{display:flex;align-items:center;gap:8px;margin-bottom:0.8rem;flex-wrap:wrap;}
+.cal-title{font-size:13px;font-weight:500;color:#4a9eff;margin-right:2px;}
+.cal-month-nav{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.cal-month-lbl{font-size:13px;font-weight:500;color:#e8e8e8;}
+.cal-btn{background:#2a2a2a;border:0.5px solid #444;border-radius:7px;padding:2px 10px;cursor:pointer;font-size:13px;color:#7ab8f5;font-family:inherit;}
+.cal-btn:hover{background:#333;}
+
+/* 파란/빨간 타원 배지 */
+.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;}
 .pill.makeup{background:#1e3a6e;color:#60a5fa;border:1px solid #2563EB;}
 .pill.retest{background:#4a1515;color:#f87171;border:1px solid #DC2626;}
-.pill-dot{width:7px;height:7px;border-radius:50%;}
-.pill-dot.makeup{background:#60a5fa;}
-.pill-dot.retest{background:#f87171;}
 
-/* 학생 카드 그리드 */
-.students-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.student-group{background:#2a2a2a;border-radius:12px;padding:0.8rem 1rem;}
-.group-header{display:flex;align-items:center;gap:6px;margin-bottom:0.7rem;padding-bottom:0.5rem;border-bottom:1px solid #383838;}
-.group-title{font-size:12px;font-weight:500;}
-.group-title.makeup{color:#60a5fa;}
-.group-title.retest{color:#f87171;}
-.group-count{font-size:11px;color:#666;margin-left:auto;}
-.student-name-row{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #2f2f2f;}
-.student-name-row:last-child{border-bottom:none;}
-.name-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.name-dot.makeup{background:#2563EB;}
-.name-dot.retest{background:#DC2626;}
-.name-text{font-size:12px;color:#e8e8e8;}
+/* 달력 */
+.cal-wrap{padding:0 0 0.5rem;}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px;}
+.cdl{text-align:center;font-size:10px;color:#666;padding:2px 0;}
+.cdl.s{color:#e24b4a;} .cdl.sa{color:#4a9eff;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cc{min-height:54px;border-radius:8px;padding:3px 3px 2px;background:#2a2a2a;cursor:pointer;transition:background 0.1s;}
+.cc:hover{background:#333;}
+.cc.today{background:#0c2a4a;outline:1.5px solid #4a9eff;}
+.cc.sel{background:#1c2a3a;outline:1.5px solid #4a9eff;}
+.cdn{font-size:10px;font-weight:500;color:#666;text-align:right;padding-right:1px;}
+.cc.today .cdn{color:#4a9eff;}
+.cchips{display:flex;flex-direction:column;gap:1px;margin-top:2px;}
+.cch{font-size:8px;border-radius:3px;padding:1px 3px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500;}
+.cch.makeup{background:#2563EB;}
+.cch.retest{background:#DC2626;}
+
+/* 상세 */
+.detail-wrap{background:#1a1a1a;padding:0.6rem 1rem 1.2rem;}
+.detail-card{background:#2a2a2a;border-radius:14px;overflow:hidden;}
+.dhead{background:#0C447C;padding:0.65rem 1rem;display:flex;align-items:center;justify-content:space-between;}
+.dhead-date{color:#fff;font-size:13px;font-weight:500;}
+.dhead-cnt{color:#B5D4F4;font-size:12px;}
+.dbody{padding:0.4rem 0;}
+.srow{display:flex;align-items:center;gap:10px;padding:0.45rem 1rem;border-bottom:1px solid #383838;}
+.srow:last-child{border-bottom:none;}
+.savatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#fff;flex-shrink:0;}
+.savatar.makeup{background:#2563EB;}
+.savatar.retest{background:#DC2626;}
+.sname{font-size:13px;color:#e8e8e8;flex:1;}
+.stype-badge{font-size:10px;padding:2px 7px;border-radius:10px;}
+.stype-badge.makeup{background:#1e3a6e;color:#60a5fa;}
+.stype-badge.retest{background:#4a1515;color:#f87171;}
+.stime{font-size:11px;color:#4a9eff;background:#0c2a4a;padding:2px 8px;border-radius:10px;}
+.empty-msg{text-align:center;font-size:13px;color:#666;padding:1.2rem 0;}
 
 /* 오버레이 */
 .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#111;z-index:100;overflow-y:auto;}
@@ -77,7 +102,7 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
 .back-btn:hover{background:#333;}
 .overlay-title{font-size:15px;font-weight:500;color:#e8e8e8;}
 
-.admin-link{text-align:center;padding:1rem 0 0;background:#1a1a1a;}
+.admin-link{text-align:center;padding:0.8rem 0;background:#1a1a1a;}
 .admin-link a{font-size:11px;color:#333;text-decoration:none;}
 .admin-link a:hover{color:#555;}
 </style>
@@ -117,31 +142,35 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
   <div id="notice-list"></div>
 </div>
 
-<!-- 학생 스케줄 -->
+<!-- 학생 스케줄 + 달력 -->
 <div class="schedule-section">
-  <div class="schedule-top">
-    <span class="schedule-title">학생 스케줄</span>
-    <span class="pill makeup"><span class="pill-dot makeup"></span>보강 테스트 <strong id="makeupPillCount">-</strong>명</span>
-    <span class="pill retest"><span class="pill-dot retest"></span>재시험 테스트 <strong id="retestPillCount">-</strong>명</span>
+  <div class="cal-header">
+    <span class="cal-title">학생 스케줄</span>
+    <span class="pill makeup">🔵 보강 <strong id="makeupPill">-</strong>명</span>
+    <span class="pill retest">🔴 재시험 <strong id="retestPill">-</strong>명</span>
+    <div class="cal-month-nav">
+      <button class="cal-btn" id="pb">‹</button>
+      <span class="cal-month-lbl" id="month-lbl"></span>
+      <button class="cal-btn" id="nb">›</button>
+    </div>
   </div>
+  <div class="cal-wrap">
+    <div class="cal-days">
+      <div class="cdl s">일</div><div class="cdl">월</div><div class="cdl">화</div>
+      <div class="cdl">수</div><div class="cdl">목</div><div class="cdl">금</div><div class="cdl sa">토</div>
+    </div>
+    <div class="cal-grid" id="cal"></div>
+  </div>
+</div>
 
-  <div class="students-grid">
-    <!-- 보강 그룹 -->
-    <div class="student-group">
-      <div class="group-header">
-        <span class="group-title makeup">보강 테스트</span>
-        <span class="group-count" id="makeupGroupCount"></span>
-      </div>
-      <div id="makeupNameList"></div>
+<!-- 날짜 상세 -->
+<div class="detail-wrap">
+  <div class="detail-card">
+    <div class="dhead">
+      <span class="dhead-date" id="ddate">날짜를 선택하세요</span>
+      <span class="dhead-cnt" id="dcnt"></span>
     </div>
-    <!-- 재시험 그룹 -->
-    <div class="student-group">
-      <div class="group-header">
-        <span class="group-title retest">재시험 테스트</span>
-        <span class="group-count" id="retestGroupCount"></span>
-      </div>
-      <div id="retestNameList"></div>
-    </div>
+    <div class="dbody" id="dbody"><div class="empty-msg">날짜를 탭하면 수업 학생을 확인해요</div></div>
   </div>
 </div>
 
@@ -162,14 +191,16 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
 <script src="data.js"></script>
 <script>
 // 히어로
-document.getElementById('heroTag').textContent = ACADEMY.nameEn;
+document.getElementById('heroTag').textContent  = ACADEMY.nameEn;
 document.getElementById('heroTitle').textContent = ACADEMY.name;
 document.getElementById('heroTagline').textContent = ACADEMY.tagline;
 document.getElementById('statMakeup').textContent = MAKEUP_STUDENTS.length;
 document.getElementById('statRetest').textContent = RETEST_STUDENTS.length;
 document.getElementById('statNotice').textContent = NOTICES.length;
+document.getElementById('makeupPill').textContent = MAKEUP_STUDENTS.length;
+document.getElementById('retestPill').textContent = RETEST_STUDENTS.length;
 
-// 공지사항 (전체 4건 표시)
+// 공지사항
 const nl = document.getElementById('notice-list');
 NOTICES.forEach((n, i) => {
   const el = document.createElement('div');
@@ -186,29 +217,70 @@ NOTICES.forEach((n, i) => {
   nl.appendChild(el);
 });
 
-// 학생 스케줄 영역
-document.getElementById('makeupPillCount').textContent = MAKEUP_STUDENTS.length;
-document.getElementById('retestPillCount').textContent = RETEST_STUDENTS.length;
-document.getElementById('makeupGroupCount').textContent = MAKEUP_STUDENTS.length + '명';
-document.getElementById('retestGroupCount').textContent = RETEST_STUDENTS.length + '명';
+// 달력
+let cur = { y: 2026, m: 4 }, selD = null;
+function dayName(y,m,d){return['일','월','화','수','목','금','토'][new Date(y,m-1,d).getDay()];}
 
-const makeupList = document.getElementById('makeupNameList');
-MAKEUP_STUDENTS.forEach(s => {
-  makeupList.innerHTML += `
-    <div class="student-name-row">
-      <div class="name-dot makeup"></div>
-      <span class="name-text">${s.name}</span>
-    </div>`;
-});
+function renderCal() {
+  const g = document.getElementById('cal');
+  g.innerHTML = '';
+  const first = new Date(cur.y, cur.m-1, 1).getDay();
+  const total = new Date(cur.y, cur.m, 0).getDate();
+  const td = new Date();
+  for (let i=0; i<first; i++) g.appendChild(document.createElement('div'));
+  for (let d=1; d<=total; d++) {
+    const k = `${cur.y}-${cur.m}-${d}`;
+    const el = document.createElement('div'); el.className = 'cc';
+    if (td.getFullYear()===cur.y && td.getMonth()===cur.m-1 && td.getDate()===d) el.classList.add('today');
+    if (selD===d) el.classList.add('sel');
+    const dn = document.createElement('div'); dn.className='cdn'; dn.textContent=d; el.appendChild(dn);
+    const ss = SCHEDULE[k] || [];
+    if (ss.length) {
+      const ch = document.createElement('div'); ch.className='cchips';
+      ss.slice(0,3).forEach(s => {
+        const c = document.createElement('div');
+        c.className = 'cch ' + s.type;
+        c.textContent = s.name.slice(0,3);
+        ch.appendChild(c);
+      });
+      if (ss.length > 3) {
+        const mo = document.createElement('div');
+        mo.className='cch'; mo.style.background='#555';
+        mo.textContent = '+' + (ss.length-3);
+        ch.appendChild(mo);
+      }
+      el.appendChild(ch);
+    }
+    el.addEventListener('click', () => { selD=d; renderCal(); showDetail(k,d); });
+    g.appendChild(el);
+  }
+  document.getElementById('month-lbl').textContent = `${cur.y}년 ${cur.m}월`;
+}
 
-const retestList = document.getElementById('retestNameList');
-RETEST_STUDENTS.forEach(s => {
-  retestList.innerHTML += `
-    <div class="student-name-row">
-      <div class="name-dot retest"></div>
-      <span class="name-text">${s.name}</span>
-    </div>`;
-});
+function showDetail(k, d) {
+  const ss = SCHEDULE[k] || [];
+  document.getElementById('ddate').textContent = `${cur.m}월 ${d}일 (${dayName(cur.y,cur.m,d)})`;
+  document.getElementById('dcnt').textContent  = ss.length ? `수업 ${ss.length}명` : '수업 없음';
+  const body = document.getElementById('dbody');
+  if (!ss.length) { body.innerHTML='<div class="empty-msg">수업이 없는 날이에요</div>'; return; }
+  body.innerHTML = ss.map(s => `
+    <div class="srow">
+      <div class="savatar ${s.type}">${s.name[0]}</div>
+      <span class="sname">${s.name}</span>
+      <span class="stype-badge ${s.type}">${s.type==='makeup'?'보강':'재시험'}</span>
+      <span class="stime">${s.time}</span>
+    </div>`).join('');
+}
+
+function resetDetail() {
+  selD=null;
+  document.getElementById('ddate').textContent='날짜를 선택하세요';
+  document.getElementById('dcnt').textContent='';
+  document.getElementById('dbody').innerHTML='<div class="empty-msg">날짜를 탭하면 수업 학생을 확인해요</div>';
+}
+
+document.getElementById('pb').addEventListener('click', () => { cur.m--; if(cur.m<1){cur.m=12;cur.y--;} resetDetail(); renderCal(); });
+document.getElementById('nb').addEventListener('click', () => { cur.m++; if(cur.m>12){cur.m=1;cur.y++;} resetDetail(); renderCal(); });
 
 // 오버레이
 function openOverlay(type) {
@@ -223,11 +295,11 @@ function openOverlay(type) {
     body.innerHTML = `<div style="margin-bottom:1rem;font-size:12px;color:#888;">대상 학생 ${MAKEUP_STUDENTS.length}명</div>`;
     MAKEUP_STUDENTS.forEach(s => {
       body.innerHTML += `
-        <div class="ncard" style="border-left:3px solid #2563EB;border-radius:0 12px 12px 0;">
+        <div class="ncard" style="border-left:3px solid #2563EB;border-radius:0 12px 12px 0;cursor:default;">
           <div class="ntop">
-            <div style="width:26px;height:26px;border-radius:50%;background:#2563EB;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#fff;flex-shrink:0;">${s.name[0]}</div>
+            <div class="savatar makeup" style="width:26px;height:26px;">${s.name[0]}</div>
             <span class="ntitle">${s.name}</span>
-            <span style="font-size:11px;color:#60a5fa;background:#1e3a6e;padding:2px 8px;border-radius:10px;">보강</span>
+            <span class="stype-badge makeup">보강</span>
           </div>
         </div>`;
     });
@@ -237,11 +309,11 @@ function openOverlay(type) {
     body.innerHTML = `<div style="margin-bottom:1rem;font-size:12px;color:#888;">대상 학생 ${RETEST_STUDENTS.length}명</div>`;
     RETEST_STUDENTS.forEach(s => {
       body.innerHTML += `
-        <div class="ncard" style="border-left:3px solid #DC2626;border-radius:0 12px 12px 0;">
+        <div class="ncard" style="border-left:3px solid #DC2626;border-radius:0 12px 12px 0;cursor:default;">
           <div class="ntop">
-            <div style="width:26px;height:26px;border-radius:50%;background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#fff;flex-shrink:0;">${s.name[0]}</div>
+            <div class="savatar retest" style="width:26px;height:26px;">${s.name[0]}</div>
             <span class="ntitle">${s.name}</span>
-            <span style="font-size:11px;color:#f87171;background:#4a1515;padding:2px 8px;border-radius:10px;">재시험</span>
+            <span class="stype-badge retest">재시험</span>
           </div>
         </div>`;
     });
@@ -250,7 +322,7 @@ function openOverlay(type) {
     title.textContent = '📢 공지사항 전체';
     NOTICES.forEach((n, i) => {
       const el = document.createElement('div');
-      el.className = 'ncard' + (i === 0 ? ' highlight open' : '');
+      el.className = 'ncard' + (i===0 ? ' highlight open' : '');
       el.innerHTML = `
         <div class="ntop">
           <span class="nbadge ${n.badge}">${n.badge}</span>
@@ -265,9 +337,9 @@ function openOverlay(type) {
   }
 }
 
-function closeOverlay() {
-  document.getElementById('overlay').classList.remove('active');
-}
+function closeOverlay() { document.getElementById('overlay').classList.remove('active'); }
+
+renderCal();
 </script>
 </body>
 </html>
