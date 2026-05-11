@@ -6,63 +6,94 @@
 <title>관리자 | Brickceline</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;color:#e8e8e8;min-height:100vh;}
+body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;color:#e8e8e8;min-height:100vh;}
 
+/* 로그인 */
 .login-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem;}
-.login-box{background:#1a1a1a;border:1px solid #333;border-radius:16px;padding:2rem 1.8rem;width:100%;max-width:340px;}
+.login-box{background:#161616;border:1px solid #2a2a2a;border-radius:16px;padding:2rem 1.8rem;width:100%;max-width:340px;}
 .login-logo{text-align:center;margin-bottom:1.5rem;}
-.login-logo h2{font-size:16px;font-weight:500;color:#4a9eff;margin-bottom:4px;}
-.login-logo p{font-size:12px;color:#666;}
-.login-label{font-size:12px;color:#888;margin-bottom:6px;display:block;}
-.login-input{width:100%;background:#2a2a2a;border:1px solid #444;border-radius:8px;padding:0.6rem 0.8rem;color:#e8e8e8;font-size:14px;font-family:inherit;outline:none;}
-.login-input:focus{border-color:#4a9eff;}
-.login-btn{width:100%;margin-top:1rem;background:#185FA5;border:none;border-radius:8px;padding:0.7rem;color:#fff;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;}
+.login-logo h2{font-size:16px;font-weight:500;color:#5b9bd5;margin-bottom:4px;}
+.login-logo p{font-size:12px;color:#555;}
+.flabel{font-size:11px;color:#666;margin-bottom:5px;display:block;}
+.finput,.fselect{width:100%;background:#1e1e1e;border:1px solid #333;border-radius:8px;padding:0.6rem 0.8rem;color:#e8e8e8;font-size:13px;font-family:inherit;outline:none;}
+.finput:focus,.fselect:focus{border-color:#5b9bd5;}
+.login-btn{width:100%;margin-top:1rem;background:#1a5fa8;border:none;border-radius:8px;padding:0.7rem;color:#fff;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;}
 .login-btn:hover{background:#1470C0;}
-.login-err{color:#e24b4a;font-size:12px;margin-top:8px;text-align:center;display:none;}
+.login-err{color:#ff6b6b;font-size:12px;margin-top:8px;text-align:center;display:none;}
 
+/* 관리자 메인 */
 .admin-wrap{display:none;max-width:640px;margin:0 auto;padding:1.5rem 1rem 3rem;}
-.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
-.admin-header h1{font-size:16px;font-weight:500;color:#4a9eff;}
-.logout-btn{background:#2a2a2a;border:1px solid #444;border-radius:8px;padding:5px 14px;color:#aaa;font-size:12px;cursor:pointer;font-family:inherit;}
+.admin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;}
+.admin-hdr h1{font-size:15px;font-weight:500;color:#5b9bd5;}
+.logout-btn{background:#1e1e1e;border:1px solid #333;border-radius:8px;padding:5px 14px;color:#666;font-size:12px;cursor:pointer;font-family:inherit;}
+.logout-btn:hover{background:#252525;}
 
-.section{background:#1a1a1a;border-radius:14px;padding:1.2rem;margin-bottom:1.2rem;}
-.section-title{font-size:13px;font-weight:500;color:#4a9eff;margin-bottom:1rem;}
-.section-title.makeup{color:#60a5fa;}
-.section-title.retest{color:#f87171;}
+.section{background:#161616;border-radius:14px;padding:1.1rem;margin-bottom:10px;}
+.sec-title{font-size:12px;font-weight:500;margin-bottom:0.9rem;letter-spacing:0.3px;}
+.sec-title.green{color:#4ade80;}
+.sec-title.orange{color:#fb923c;}
+.sec-title.blue{color:#5b9bd5;}
 
-.form-row{display:grid;gap:8px;margin-bottom:10px;}
-.form-row.cols2{grid-template-columns:1fr 1fr;}
-.form-row.cols3{grid-template-columns:1fr 1fr 1fr;}
-.flabel{font-size:11px;color:#888;margin-bottom:3px;display:block;}
-.finput,.fselect{width:100%;background:#2a2a2a;border:1px solid #444;border-radius:8px;padding:0.55rem 0.75rem;color:#e8e8e8;font-size:13px;font-family:inherit;outline:none;}
-.finput:focus,.fselect:focus{border-color:#4a9eff;}
+.form-row{display:grid;gap:8px;margin-bottom:9px;}
+.form-row.c2{grid-template-columns:1fr 1fr;}
+.form-row.c3{grid-template-columns:1fr 1fr 1fr;}
 
-.add-btn{border:none;border-radius:8px;padding:0.55rem 1.2rem;color:#fff;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;}
-.add-btn.makeup{background:#2563EB;}
-.add-btn.makeup:hover{background:#1d4ed8;}
-.add-btn.retest{background:#DC2626;}
-.add-btn.retest:hover{background:#b91c1c;}
-.add-btn.notice{background:#185FA5;}
-.add-btn.notice:hover{background:#1470C0;}
-.add-btn.export{background:#0F6E56;width:100%;margin-top:8px;}
-.add-btn.export:hover{background:#0d5c47;}
+.add-btn{border:none;border-radius:8px;padding:0.5rem 1.1rem;color:#fff;font-size:12px;font-weight:500;cursor:pointer;font-family:inherit;}
+.add-btn.green{background:#15803d;} .add-btn.green:hover{background:#166534;}
+.add-btn.orange{background:#ea580c;} .add-btn.orange:hover{background:#c2410c;}
+.add-btn.blue{background:#1a5fa8;} .add-btn.blue:hover{background:#1470C0;}
+.add-btn.teal{background:#0f766e;width:100%;margin-top:8px;} .add-btn.teal:hover{background:#0d6b64;}
 
-.del-btn{background:#2a2a2a;border:1px solid #555;border-radius:6px;padding:3px 10px;color:#e24b4a;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;}
-.del-btn:hover{background:#3a1a1a;}
+.del-btn{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:6px;padding:3px 9px;color:#e24b4a;font-size:11px;cursor:pointer;font-family:inherit;}
+.del-btn:hover{background:#2a1515;}
 
-.item-list{margin-top:0.75rem;display:flex;flex-direction:column;gap:6px;}
-.item-row{background:#2a2a2a;border-radius:10px;padding:0.6rem 0.8rem;display:flex;align-items:center;gap:8px;border-left:3px solid transparent;}
-.item-row.makeup{border-left-color:#2563EB;}
-.item-row.retest{border-left-color:#DC2626;}
-.item-text{flex:1;font-size:13px;color:#e8e8e8;}
-.item-sub{font-size:11px;color:#666;}
-.type-pill{font-size:10px;padding:2px 8px;border-radius:12px;}
-.type-pill.makeup{background:#1e3a6e;color:#60a5fa;}
-.type-pill.retest{background:#4a1515;color:#f87171;}
+.item-list{margin-top:0.7rem;display:flex;flex-direction:column;gap:5px;}
+.item-row{background:#1e1e1e;border-radius:9px;padding:0.55rem 0.8rem;display:flex;align-items:center;gap:8px;border-left:3px solid transparent;}
+.item-row.green{border-left-color:#15803d;}
+.item-row.orange{border-left-color:#ea580c;}
+.item-row.blue{border-left-color:#1a5fa8;}
+.item-text{flex:1;font-size:13px;color:#e0e0e0;}
+.item-sub{font-size:11px;color:#555;}
+.pill-sm{font-size:10px;padding:2px 7px;border-radius:10px;white-space:nowrap;}
+.pill-sm.green{background:#0d2b1a;color:#4ade80;}
+.pill-sm.orange{background:#2d1a0a;color:#fb923c;}
+.pill-sm.blue{background:#0d1e33;color:#7ab0e8;}
 
-.divider{border:none;border-top:1px solid #333;margin:0.75rem 0;}
-.back-link{text-align:center;margin-top:1rem;}
-.back-link a{font-size:12px;color:#555;text-decoration:none;}
+.divider{border:none;border-top:1px solid #222;margin:0.7rem 0;}
+.empty-note{font-size:12px;color:#333;padding:4px;}
+
+/* 달력 (관리자용) */
+.cal-header-adm{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
+.cal-lbl{font-size:13px;font-weight:500;color:#e0e0e0;}
+.cal-btns{display:flex;gap:5px;}
+.cal-btn{background:#1e1e1e;border:1px solid #333;border-radius:7px;padding:2px 10px;cursor:pointer;font-size:13px;color:#5b9bd5;font-family:inherit;}
+.cal-btn:hover{background:#252525;}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:3px;}
+.cdl{text-align:center;font-size:10px;color:#444;padding:2px 0;}
+.cdl.s{color:#c0392b;} .cdl.sa{color:#3a7bd5;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:0.75rem;}
+.cc{min-height:52px;border-radius:8px;padding:3px 3px 2px;background:#1e1e1e;cursor:pointer;transition:background 0.1s;position:relative;}
+.cc:hover{background:#252525;}
+.cc.today{background:rgba(255,220,50,0.1);outline:1.5px solid rgba(255,220,50,0.45);}
+.cc.sel{background:#0d2137;outline:1.5px solid #3a7bd5;}
+.cdn{font-size:10px;font-weight:500;color:#444;text-align:right;padding-right:2px;}
+.cc.today .cdn{color:#f0c040;font-weight:700;}
+.cc.sel .cdn{color:#7ab0e8;}
+.cchips{display:flex;flex-direction:column;gap:1px;margin-top:2px;}
+.cch{font-size:8px;border-radius:3px;padding:1px 3px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;}
+.cch.makeup{background:#15803d;}
+.cch.retest{background:#ea580c;}
+
+/* 날짜별 추가 패널 */
+.day-panel{background:#1a2535;border-radius:10px;padding:0.8rem 0.9rem;margin-top:0.5rem;}
+.day-panel-title{font-size:12px;font-weight:500;color:#7ab0e8;margin-bottom:0.7rem;}
+.day-students{display:flex;flex-direction:column;gap:5px;margin-bottom:0.6rem;}
+.day-srow{display:flex;align-items:center;gap:8px;padding:0.4rem 0.6rem;background:#1e2d3e;border-radius:8px;}
+.day-sname{flex:1;font-size:12px;color:#e0e0e0;}
+
+.back-link{text-align:center;margin-top:0.8rem;}
+.back-link a{font-size:12px;color:#333;text-decoration:none;}
+.back-link a:hover{color:#555;}
 </style>
 </head>
 <body>
@@ -73,86 +104,99 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
       <h2>🔒 관리자 로그인</h2>
       <p>Brickceline English Academy</p>
     </div>
-    <label class="login-label">비밀번호</label>
-    <input class="login-input" type="password" id="pwInput" placeholder="비밀번호를 입력하세요"
+    <label class="flabel">비밀번호</label>
+    <input class="finput" type="password" id="pwInput" placeholder="비밀번호 입력"
       onkeydown="if(event.key==='Enter')doLogin()">
     <button class="login-btn" onclick="doLogin()">로그인</button>
     <div class="login-err" id="loginErr">비밀번호가 올바르지 않습니다.</div>
   </div>
   <div style="margin-top:1.2rem;">
-    <a href="index.html" style="font-size:12px;color:#444;text-decoration:none;">← 학원 홈으로</a>
+    <a href="index.html" style="font-size:12px;color:#333;text-decoration:none;">← 학원 홈으로</a>
   </div>
 </div>
 
 <div class="admin-wrap" id="adminWrap">
-  <div class="admin-header">
+  <div class="admin-hdr">
     <h1>🛠 관리자 — Brickceline</h1>
     <button class="logout-btn" onclick="doLogout()">로그아웃</button>
   </div>
 
-  <!-- 보강 테스트 학생 -->
+  <!-- 보강 학생 -->
   <div class="section">
-    <div class="section-title makeup">🔵 보강 테스트 학생 관리</div>
+    <div class="sec-title green">🟢 보강 테스트 학생</div>
     <div class="form-row">
       <div>
         <label class="flabel">학생 이름</label>
-        <input class="finput" type="text" id="makeupName" placeholder="학생 이름 입력">
+        <input class="finput" type="text" id="mkName" placeholder="이름 입력"
+          onkeydown="if(event.key==='Enter')addMakeup()">
       </div>
     </div>
-    <button class="add-btn makeup" onclick="addMakeupStudent()">+ 보강 학생 추가</button>
+    <button class="add-btn green" onclick="addMakeup()">+ 추가</button>
     <hr class="divider">
-    <div class="item-list" id="makeupStudentList"></div>
+    <div class="item-list" id="mkList"></div>
   </div>
 
-  <!-- 재시험 테스트 학생 -->
+  <!-- 재시험 학생 -->
   <div class="section">
-    <div class="section-title retest">🔴 재시험 테스트 학생 관리</div>
+    <div class="sec-title orange">🟠 재시험 테스트 학생</div>
     <div class="form-row">
       <div>
         <label class="flabel">학생 이름</label>
-        <input class="finput" type="text" id="retestName" placeholder="학생 이름 입력">
+        <input class="finput" type="text" id="rtName" placeholder="이름 입력"
+          onkeydown="if(event.key==='Enter')addRetest()">
       </div>
     </div>
-    <button class="add-btn retest" onclick="addRetestStudent()">+ 재시험 학생 추가</button>
+    <button class="add-btn orange" onclick="addRetest()">+ 추가</button>
     <hr class="divider">
-    <div class="item-list" id="retestStudentList"></div>
+    <div class="item-list" id="rtList"></div>
   </div>
 
-  <!-- 스케줄 -->
+  <!-- 달력으로 스케줄 관리 -->
   <div class="section">
-    <div class="section-title">📅 수업 스케줄 관리</div>
-    <div class="form-row cols3">
-      <div>
-        <label class="flabel">날짜</label>
-        <input class="finput" type="date" id="scDate">
-      </div>
-      <div>
-        <label class="flabel">학생 이름</label>
-        <input class="finput" type="text" id="scName" placeholder="이름">
-      </div>
-      <div>
-        <label class="flabel">시간</label>
-        <input class="finput" type="time" id="scTime" value="14:00">
+    <div class="sec-title blue">📅 수업 스케줄 — 달력에서 날짜를 선택하세요</div>
+    <div class="cal-header-adm">
+      <span class="cal-lbl" id="adm-month-lbl"></span>
+      <div class="cal-btns">
+        <button class="cal-btn" id="adm-pb">‹</button>
+        <button class="cal-btn" id="adm-nb">›</button>
       </div>
     </div>
-    <div class="form-row">
-      <div>
-        <label class="flabel">구분</label>
-        <select class="fselect" id="scType">
-          <option value="makeup">보강 테스트 (파란색)</option>
-          <option value="retest">재시험 테스트 (빨간색)</option>
-        </select>
-      </div>
+    <div class="cal-days">
+      <div class="cdl s">일</div><div class="cdl">월</div><div class="cdl">화</div>
+      <div class="cdl">수</div><div class="cdl">목</div><div class="cdl">금</div><div class="cdl sa">토</div>
     </div>
-    <button class="add-btn notice" onclick="addSchedule()">+ 수업 추가</button>
-    <hr class="divider">
-    <div class="item-list" id="scheduleList"></div>
+    <div class="cal-grid" id="adm-cal"></div>
+
+    <!-- 날짜 선택 후 표시 패널 -->
+    <div class="day-panel" id="dayPanel" style="display:none;">
+      <div class="day-panel-title" id="dayPanelTitle"></div>
+      <div class="day-students" id="dayStudents"></div>
+      <!-- 추가 폼 -->
+      <div class="form-row c3">
+        <div>
+          <label class="flabel">학생 이름</label>
+          <input class="finput" type="text" id="scName" placeholder="이름">
+        </div>
+        <div>
+          <label class="flabel">구분</label>
+          <select class="fselect" id="scType">
+            <option value="makeup">보강 🟢</option>
+            <option value="retest">재시험 🟠</option>
+          </select>
+        </div>
+        <div>
+          <label class="flabel">시간</label>
+          <input class="finput" type="time" id="scTime" value="14:00">
+        </div>
+      </div>
+      <button class="add-btn blue" onclick="addToDay()" style="width:100%;margin-top:2px;">+ 이 날짜에 추가</button>
+    </div>
   </div>
 
   <!-- 공지사항 -->
   <div class="section">
-    <div class="section-title">📢 공지사항 관리</div>
-    <div class="form-row cols2">
+    <div class="sec-title blue">📢 공지사항</div>
+    <div class="form-row c2">
       <div>
         <label class="flabel">분류</label>
         <select class="fselect" id="nBadge">
@@ -178,20 +222,21 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
         <input class="finput" type="text" id="nContent" placeholder="공지 내용">
       </div>
     </div>
-    <button class="add-btn notice" onclick="addNotice()">+ 공지 추가</button>
+    <button class="add-btn blue" onclick="addNotice()">+ 공지 추가</button>
     <hr class="divider">
     <div class="item-list" id="noticeList"></div>
   </div>
 
   <!-- 내보내기 -->
   <div class="section">
-    <div class="section-title">📋 data.js 내보내기</div>
-    <p style="font-size:12px;color:#888;margin-bottom:0.75rem;">
-      ① 복사 → ② VSCode에서 data.js 열기 → ③ 전체선택(⌘A) → ④ 붙여넣기(⌘V) → ⑤ 저장(⌘S) → ⑥ GitHub 업로드
+    <div class="sec-title blue">📋 data.js 내보내기</div>
+    <p style="font-size:11px;color:#444;margin-bottom:0.7rem;line-height:1.6;">
+      ① 복사 → ② VSCode에서 data.js 열기 → ③ ⌘A → ④ ⌘V → ⑤ ⌘S → ⑥ GitHub 업로드
     </p>
     <textarea id="exportCode" readonly
-      style="width:100%;height:220px;background:#0a0a0a;border:1px solid #333;border-radius:8px;padding:0.75rem;color:#7ab8f5;font-size:11px;font-family:monospace;resize:vertical;outline:none;"></textarea>
-    <button class="add-btn export" onclick="copyCode()">📋 클립보드에 복사하기</button>
+      style="width:100%;height:220px;background:#0a0a0a;border:1px solid #222;border-radius:8px;
+             padding:0.75rem;color:#5b9bd5;font-size:11px;font-family:monospace;resize:vertical;outline:none;"></textarea>
+    <button class="add-btn teal" onclick="copyCode()">📋 클립보드에 복사하기</button>
   </div>
 
   <div class="back-link"><a href="index.html">← 학원 홈으로</a></div>
@@ -199,121 +244,176 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#111;colo
 
 <script src="data.js"></script>
 <script>
-let localMakeup   = JSON.parse(JSON.stringify(MAKEUP_STUDENTS));
-let localRetest   = JSON.parse(JSON.stringify(RETEST_STUDENTS));
-let localNotices  = JSON.parse(JSON.stringify(NOTICES));
-let localSchedule = JSON.parse(JSON.stringify(SCHEDULE));
+const KST = new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}));
+const TY=KST.getFullYear(), TM=KST.getMonth()+1, TD=KST.getDate();
 
-function doLogin() {
-  if (document.getElementById('pwInput').value === ACADEMY.adminPassword) {
-    document.getElementById('loginWrap').style.display = 'none';
-    document.getElementById('adminWrap').style.display = 'block';
-    document.getElementById('nDate').value = new Date().toISOString().slice(0,10);
-    document.getElementById('scDate').value = new Date().toISOString().slice(0,10);
+let localMakeup  = JSON.parse(JSON.stringify(MAKEUP_STUDENTS));
+let localRetest  = JSON.parse(JSON.stringify(RETEST_STUDENTS));
+let localNotices = JSON.parse(JSON.stringify(NOTICES));
+let localSched   = JSON.parse(JSON.stringify(SCHEDULE));
+
+let admCur = {y:TY, m:TM};
+let selKey = null, selD2 = null;
+
+/* ── 로그인 ── */
+function doLogin(){
+  if(document.getElementById('pwInput').value===ACADEMY.adminPassword){
+    document.getElementById('loginWrap').style.display='none';
+    document.getElementById('adminWrap').style.display='block';
+    document.getElementById('nDate').value=new Date().toISOString().slice(0,10);
     renderAll();
   } else {
-    document.getElementById('loginErr').style.display = 'block';
+    document.getElementById('loginErr').style.display='block';
   }
 }
-function doLogout() {
-  document.getElementById('loginWrap').style.display = 'flex';
-  document.getElementById('adminWrap').style.display = 'none';
-  document.getElementById('pwInput').value = '';
-  document.getElementById('loginErr').style.display = 'none';
+function doLogout(){
+  document.getElementById('loginWrap').style.display='flex';
+  document.getElementById('adminWrap').style.display='none';
+  document.getElementById('pwInput').value='';
+  document.getElementById('loginErr').style.display='none';
 }
-function renderAll() {
-  renderMakeupStudents(); renderRetestStudents();
-  renderSchedule(); renderNotices(); exportCode();
-}
+function renderAll(){ renderMakeup(); renderRetest(); renderAdmCal(); renderNotices(); exportCode(); }
 
-// 보강 학생
-function renderMakeupStudents() {
-  document.getElementById('makeupStudentList').innerHTML = localMakeup.length
+/* ── 보강 학생 ── */
+function renderMakeup(){
+  document.getElementById('mkList').innerHTML = localMakeup.length
     ? localMakeup.map((s,i)=>`
-        <div class="item-row makeup">
-          <span class="type-pill makeup">보강</span>
+        <div class="item-row green">
+          <span class="pill-sm green">보강</span>
           <div class="item-text">${s.name}</div>
           <button class="del-btn" onclick="delMakeup(${i})">삭제</button>
         </div>`).join('')
-    : '<div style="font-size:12px;color:#555;padding:4px;">없음</div>';
+    : '<div class="empty-note">등록된 학생 없음</div>';
 }
-function addMakeupStudent() {
-  const name = document.getElementById('makeupName').value.trim();
-  if(!name){alert('이름을 입력하세요.');return;}
-  localMakeup.push({name});
-  document.getElementById('makeupName').value='';
+function addMakeup(){
+  const n=document.getElementById('mkName').value.trim();
+  if(!n){alert('이름을 입력하세요.');return;}
+  localMakeup.push({name:n});
+  document.getElementById('mkName').value='';
   renderAll();
 }
 function delMakeup(i){if(!confirm('삭제?'))return;localMakeup.splice(i,1);renderAll();}
 
-// 재시험 학생
-function renderRetestStudents() {
-  document.getElementById('retestStudentList').innerHTML = localRetest.length
+/* ── 재시험 학생 ── */
+function renderRetest(){
+  document.getElementById('rtList').innerHTML = localRetest.length
     ? localRetest.map((s,i)=>`
-        <div class="item-row retest">
-          <span class="type-pill retest">재시험</span>
+        <div class="item-row orange">
+          <span class="pill-sm orange">재시험</span>
           <div class="item-text">${s.name}</div>
           <button class="del-btn" onclick="delRetest(${i})">삭제</button>
         </div>`).join('')
-    : '<div style="font-size:12px;color:#555;padding:4px;">없음</div>';
+    : '<div class="empty-note">등록된 학생 없음</div>';
 }
-function addRetestStudent() {
-  const name = document.getElementById('retestName').value.trim();
-  if(!name){alert('이름을 입력하세요.');return;}
-  localRetest.push({name});
-  document.getElementById('retestName').value='';
+function addRetest(){
+  const n=document.getElementById('rtName').value.trim();
+  if(!n){alert('이름을 입력하세요.');return;}
+  localRetest.push({name:n});
+  document.getElementById('rtName').value='';
   renderAll();
 }
 function delRetest(i){if(!confirm('삭제?'))return;localRetest.splice(i,1);renderAll();}
 
-// 스케줄
-function renderSchedule() {
-  const entries = Object.entries(localSchedule).sort((a,b)=>a[0].localeCompare(b[0])).slice(-15);
-  document.getElementById('scheduleList').innerHTML = entries.length
-    ? entries.map(([k,arr])=>arr.map((s,si)=>`
-        <div class="item-row ${s.type}">
-          <span class="type-pill ${s.type}">${s.type==='makeup'?'보강':'재시험'}</span>
-          <div class="item-text">${s.name} — ${s.time}<div class="item-sub">${k}</div></div>
-          <button class="del-btn" onclick="delSchedule('${k}',${si})">삭제</button>
-        </div>`).join('')).join('')
-    : '<div style="font-size:12px;color:#555;padding:4px;">없음</div>';
-}
-function addSchedule() {
-  const dateVal = document.getElementById('scDate').value;
-  const name    = document.getElementById('scName').value.trim();
-  const time    = document.getElementById('scTime').value;
-  const type    = document.getElementById('scType').value;
-  if(!dateVal||!name){alert('날짜와 이름을 입력하세요.');return;}
-  const p=dateVal.split('-');
-  const key=`${p[0]}-${parseInt(p[1])}-${parseInt(p[2])}`;
-  if(!localSchedule[key]) localSchedule[key]=[];
-  localSchedule[key].push({name,type,time});
-  document.getElementById('scName').value='';
-  renderAll();
-}
-function delSchedule(key,si){
-  if(!confirm('삭제?'))return;
-  localSchedule[key].splice(si,1);
-  if(!localSchedule[key].length) delete localSchedule[key];
-  renderAll();
+/* ── 관리자 달력 ── */
+function dayName(y,m,d){return['일','월','화','수','목','금','토'][new Date(y,m-1,d).getDay()];}
+
+function renderAdmCal(){
+  const g=document.getElementById('adm-cal');
+  g.innerHTML='';
+  const first=new Date(admCur.y,admCur.m-1,1).getDay();
+  const total=new Date(admCur.y,admCur.m,0).getDate();
+  for(let i=0;i<first;i++) g.appendChild(document.createElement('div'));
+  for(let d=1;d<=total;d++){
+    const k=`${admCur.y}-${admCur.m}-${d}`;
+    const el=document.createElement('div'); el.className='cc';
+    if(admCur.y===TY&&admCur.m===TM&&d===TD) el.classList.add('today');
+    if(selD2===d) el.classList.add('sel');
+    const dn=document.createElement('div');dn.className='cdn';dn.textContent=d;el.appendChild(dn);
+    const ss=localSched[k]||[];
+    if(ss.length){
+      const ch=document.createElement('div');ch.className='cchips';
+      ss.slice(0,3).forEach(s=>{
+        const c=document.createElement('div');c.className='cch '+s.type;
+        c.textContent=s.name.slice(0,3);ch.appendChild(c);
+      });
+      if(ss.length>3){const mo=document.createElement('div');mo.className='cch';mo.style.background='#444';mo.textContent='+'+(ss.length-3);ch.appendChild(mo);}
+      el.appendChild(ch);
+    }
+    el.addEventListener('click',()=>{selKey=k;selD2=d;renderAdmCal();showDayPanel(k,d);});
+    g.appendChild(el);
+  }
+  document.getElementById('adm-month-lbl').textContent=`${admCur.y}년 ${admCur.m}월`;
 }
 
-// 공지
-function renderNotices() {
+function showDayPanel(k,d){
+  const panel=document.getElementById('dayPanel');
+  panel.style.display='block';
+  document.getElementById('dayPanelTitle').textContent=`${admCur.m}월 ${d}일 (${dayName(admCur.y,admCur.m,d)}) 수업`;
+  const ss=localSched[k]||[];
+  const ds=document.getElementById('dayStudents');
+  ds.innerHTML = ss.length
+    ? ss.map((s,si)=>`
+        <div class="day-srow">
+          <span class="pill-sm ${s.type==='makeup'?'green':'orange'}">${s.type==='makeup'?'보강':'재시험'}</span>
+          <span class="day-sname">${s.name}</span>
+          <span style="font-size:11px;color:#555;">${s.time}</span>
+          <button class="del-btn" onclick="delFromDay('${k}',${si})">삭제</button>
+        </div>`).join('')
+    : '<div class="empty-note" style="color:#444;">수업 없음 — 아래에서 추가하세요</div>';
+}
+
+function addToDay(){
+  if(!selKey){alert('달력에서 날짜를 먼저 선택하세요.');return;}
+  const name=document.getElementById('scName').value.trim();
+  const type=document.getElementById('scType').value;
+  const time=document.getElementById('scTime').value;
+  if(!name){alert('학생 이름을 입력하세요.');return;}
+  if(!localSched[selKey]) localSched[selKey]=[];
+  localSched[selKey].push({name,type,time});
+  document.getElementById('scName').value='';
+  renderAdmCal();
+  showDayPanel(selKey,selD2);
+  exportCode();
+}
+
+function delFromDay(k,si){
+  if(!confirm('삭제하시겠습니까?'))return;
+  localSched[k].splice(si,1);
+  if(!localSched[k].length) delete localSched[k];
+  renderAdmCal();
+  showDayPanel(k,selD2);
+  exportCode();
+}
+
+document.getElementById('adm-pb').addEventListener('click',()=>{
+  admCur.m--;if(admCur.m<1){admCur.m=12;admCur.y--;}
+  selKey=null;selD2=null;
+  document.getElementById('dayPanel').style.display='none';
+  renderAdmCal();
+});
+document.getElementById('adm-nb').addEventListener('click',()=>{
+  admCur.m++;if(admCur.m>12){admCur.m=1;admCur.y++;}
+  selKey=null;selD2=null;
+  document.getElementById('dayPanel').style.display='none';
+  renderAdmCal();
+});
+
+/* ── 공지사항 ── */
+function renderNotices(){
   document.getElementById('noticeList').innerHTML = localNotices.length
     ? localNotices.map((n,i)=>`
-        <div class="item-row" style="border-left-color:#4a9eff;">
-          <span class="type-pill makeup">${n.badge}</span>
+        <div class="item-row blue">
+          <span class="pill-sm blue">${n.badge}</span>
           <div class="item-text">${n.title}<div class="item-sub">${n.date}</div></div>
           <button class="del-btn" onclick="delNotice(${i})">삭제</button>
         </div>`).join('')
-    : '<div style="font-size:12px;color:#555;padding:4px;">없음</div>';
+    : '<div class="empty-note">공지 없음</div>';
 }
-function addNotice() {
-  const badge  = document.getElementById('nBadge').value;
-  const date   = document.getElementById('nDate').value.replace(/-/g,'.');
-  const title  = document.getElementById('nTitle').value.trim();
-  const content= document.getElementById('nContent').value.trim();
+function addNotice(){
+  const badge=document.getElementById('nBadge').value;
+  const date=document.getElementById('nDate').value.replace(/-/g,'.');
+  const title=document.getElementById('nTitle').value.trim();
+  const content=document.getElementById('nContent').value.trim();
   if(!title){alert('제목을 입력하세요.');return;}
   localNotices.unshift({id:Date.now(),badge,title,date,content,isNew:true});
   document.getElementById('nTitle').value='';
@@ -322,8 +422,8 @@ function addNotice() {
 }
 function delNotice(i){if(!confirm('삭제?'))return;localNotices.splice(i,1);renderAll();}
 
-// 내보내기
-function exportCode() {
+/* ── 내보내기 ── */
+function exportCode(){
   document.getElementById('exportCode').value=
 `// ============================================================
 //  Brickceline 영어학원 데이터 파일
@@ -342,12 +442,12 @@ const RETEST_STUDENTS = ${JSON.stringify(localRetest,null,2)};
 
 const NOTICES = ${JSON.stringify(localNotices,null,2)};
 
-const SCHEDULE = ${JSON.stringify(localSchedule,null,2)};`;
+const SCHEDULE = ${JSON.stringify(localSched,null,2)};`;
 }
-function copyCode() {
+function copyCode(){
   const ta=document.getElementById('exportCode');
-  ta.select(); document.execCommand('copy');
-  alert('복사 완료!\nVSCode에서 data.js 열기 → ⌘A → ⌘V → ⌘S\n그 다음 GitHub에 업로드하세요.');
+  ta.select();document.execCommand('copy');
+  alert('복사 완료!\n\nVSCode에서 data.js 열기\n→ ⌘A → ⌘V → ⌘S\n→ GitHub 업로드');
 }
 </script>
 </body>
