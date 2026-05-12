@@ -9,7 +9,7 @@
 body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;color:#e8e8e8;}
 .app{max-width:420px;margin:0 auto;padding-bottom:3rem;}
 
-/* ── HERO ── */
+/* HERO */
 .hero{background:linear-gradient(135deg,#1a5fa8 0%,#0d3d72 100%);padding:1.4rem 1.2rem 1.2rem;position:relative;overflow:hidden;}
 .hero-deco{position:absolute;right:-24px;top:-24px;width:130px;height:130px;border-radius:50%;background:#0C447C;opacity:0.35;}
 .hero-deco2{position:absolute;right:16px;bottom:-32px;width:90px;height:90px;border-radius:50%;background:#378ADD;opacity:0.2;}
@@ -22,11 +22,11 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .hstat-n{color:#fff;font-size:18px;font-weight:600;}
 .hstat-l{color:#a8ccf0;font-size:10px;margin-top:3px;}
 
-/* ── 공지사항 ── */
+/* 공지사항 */
 .section{background:#161616;padding:1rem 1rem 1.1rem;margin-top:3px;}
 .sec-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
 .sec-label{font-size:13px;font-weight:500;color:#5b9bd5;}
-.sec-more{font-size:11px;color:#555;cursor:pointer;transition:color 0.1s;}
+.sec-more{font-size:11px;color:#555;cursor:pointer;}
 .sec-more:hover{color:#888;}
 .ncard{background:#1e1e1e;border-radius:10px;padding:0.75rem 0.9rem;margin-bottom:6px;cursor:pointer;border-left:3px solid transparent;transition:background 0.12s;}
 .ncard:last-child{margin-bottom:0;}
@@ -43,18 +43,19 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .nexpand{font-size:12px;color:#888;margin-top:6px;line-height:1.7;display:none;border-top:1px solid #2a2a2a;padding-top:7px;}
 .ncard.open .nexpand{display:block;}
 
-/* ── 스케줄 ── */
+/* 스케줄 */
 .schedule-sec{background:#161616;padding:1rem 1rem 0;margin-top:3px;}
 .cal-header{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:0.8rem;}
 .cal-title{font-size:13px;font-weight:500;color:#5b9bd5;}
 
-/* 색상 변경: 보강 → 인디고 / 재시험 → 로즈 */
+/* 색상: 보강=청록(Teal) / 재시험=다홍(Rose) */
 .pill{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:500;border:1px solid transparent;}
-.pill.makeup{background:#1a1a2e;color:#a5b4fc;border-color:#4f46e5;}
-.pill.retest{background:#2a1020;color:#fda4af;border-color:#e11d48;}
+.pill.makeup{background:#0d2424;color:#2dd4bf;border-color:#0d9488;}
+.pill.retest{background:#28100e;color:#fca5a5;border-color:#dc2626;}
 .pill-dot{width:6px;height:6px;border-radius:50%;}
-.pill-dot.makeup{background:#818cf8;}
-.pill-dot.retest{background:#fb7185;}
+.pill-dot.makeup{background:#2dd4bf;}
+.pill-dot.retest{background:#f87171;}
+
 .cal-nav{display:flex;align-items:center;gap:6px;margin-left:auto;}
 .cal-lbl{font-size:13px;font-weight:500;color:#e0e0e0;}
 .cal-btn{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:7px;padding:2px 10px;cursor:pointer;font-size:13px;color:#5b9bd5;font-family:inherit;}
@@ -65,7 +66,7 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .cdl{text-align:center;font-size:10px;color:#444;padding:3px 0;}
 .cdl.s{color:#c0392b;} .cdl.sa{color:#3a7bd5;}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
-.cc{min-height:54px;border-radius:8px;padding:3px 3px 2px;background:#1e1e1e;cursor:pointer;transition:background 0.1s;position:relative;}
+.cc{min-height:54px;border-radius:8px;padding:3px 3px 2px;background:#1e1e1e;cursor:pointer;transition:background 0.1s;}
 .cc:hover{background:#252525;}
 .cc.today{background:rgba(255,220,50,0.1);outline:1.5px solid rgba(255,220,50,0.45);}
 .cc.sel{background:#0d1e38;outline:1.5px solid #3a7bd5;}
@@ -74,10 +75,10 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .cc.sel .cdn{color:#7ab0e8;}
 .cchips{display:flex;flex-direction:column;gap:1px;margin-top:2px;}
 .cch{font-size:8px;border-radius:3px;padding:1px 3px;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600;}
-.cch.makeup{background:#4f46e5;}
-.cch.retest{background:#e11d48;}
+.cch.makeup{background:#0d9488;}
+.cch.retest{background:#dc2626;}
 
-/* ── 상세 ── */
+/* 상세 */
 .detail-wrap{background:#161616;padding:0 1rem 1.2rem;}
 .detail-card{background:#1e1e1e;border-radius:12px;overflow:hidden;}
 .dhead{background:#0d2040;padding:0.65rem 1rem;display:flex;align-items:center;justify-content:space-between;}
@@ -87,16 +88,16 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .srow{display:flex;align-items:center;gap:10px;padding:0.45rem 1rem;border-bottom:1px solid #252525;}
 .srow:last-child{border-bottom:none;}
 .savatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;flex-shrink:0;}
-.savatar.makeup{background:#4f46e5;}
-.savatar.retest{background:#e11d48;}
+.savatar.makeup{background:#0d9488;}
+.savatar.retest{background:#dc2626;}
 .sname{font-size:13px;color:#e0e0e0;flex:1;}
 .stype-badge{font-size:10px;padding:2px 7px;border-radius:10px;}
-.stype-badge.makeup{background:#1a1a2e;color:#a5b4fc;}
-.stype-badge.retest{background:#2a1020;color:#fda4af;}
+.stype-badge.makeup{background:#0d2424;color:#2dd4bf;}
+.stype-badge.retest{background:#28100e;color:#fca5a5;}
 .stime{font-size:11px;color:#5b9bd5;background:#0d1e33;padding:2px 8px;border-radius:10px;}
 .empty-msg{text-align:center;font-size:12px;color:#444;padding:1.2rem 0;}
 
-/* ── 오버레이 ── */
+/* 오버레이 */
 .overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#0f0f0f;z-index:100;overflow-y:auto;}
 .overlay.active{display:block;}
 .overlay-inner{max-width:420px;margin:0 auto;padding:1rem 1rem 3rem;}
@@ -104,17 +105,15 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .back-btn{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:5px 13px;color:#777;font-size:12px;cursor:pointer;font-family:inherit;}
 .back-btn:hover{background:#252525;}
 .overlay-title{font-size:15px;font-weight:500;color:#e0e0e0;}
-
-/* 오버레이 학생 카드 */
 .ov-card{background:#1e1e1e;border-radius:12px;padding:0.85rem 1rem;margin-bottom:8px;}
-.ov-card.makeup{border-left:3px solid #4f46e5;border-radius:0 12px 12px 0;}
-.ov-card.retest{border-left:3px solid #e11d48;border-radius:0 12px 12px 0;}
+.ov-card.makeup{border-left:3px solid #0d9488;border-radius:0 12px 12px 0;}
+.ov-card.retest{border-left:3px solid #dc2626;border-radius:0 12px 12px 0;}
 .ov-name-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
 .ov-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;flex-shrink:0;}
-.ov-avatar.makeup{background:#4f46e5;}
-.ov-avatar.retest{background:#e11d48;}
+.ov-avatar.makeup{background:#0d9488;}
+.ov-avatar.retest{background:#dc2626;}
 .ov-name{font-size:14px;color:#e0e0e0;font-weight:500;flex:1;}
-.ov-dates{display:flex;flex-direction:column;gap:4px;padding-left:40px;}
+.ov-dates{display:flex;flex-direction:column;gap:5px;padding-left:40px;}
 .ov-date-row{display:flex;align-items:center;gap:8px;}
 .ov-date{font-size:12px;color:#888;}
 .ov-time{font-size:11px;color:#5b9bd5;background:#0d1e33;padding:2px 8px;border-radius:10px;}
@@ -126,8 +125,7 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 </style>
 </head>
 <body>
-<div class="app" id="mainApp">
-
+<div class="app">
 <div class="hero">
   <div class="hero-deco"></div><div class="hero-deco2"></div>
   <div class="hero-tag" id="heroTag"></div>
@@ -187,9 +185,7 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
   </div>
 </div>
 <div class="admin-link"><a href="admin.html">🔒 관리자</a></div>
-</div>
 
-<!-- 오버레이 -->
 <div class="overlay" id="overlay">
   <div class="overlay-inner">
     <div class="overlay-hdr">
@@ -199,63 +195,50 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
     <div id="overlayBody"></div>
   </div>
 </div>
+</div>
 
 <script src="data.js"></script>
 <script>
-// 한국 현재 날짜
-const KST = new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}));
-const TODAY_Y=KST.getFullYear(), TODAY_M=KST.getMonth()+1, TODAY_D=KST.getDate();
+const KST=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}));
+const TY=KST.getFullYear(),TM=KST.getMonth()+1,TD=KST.getDate();
 
-// 히어로
-document.getElementById('heroTag').textContent = ACADEMY.nameEn;
-document.getElementById('heroTitle').textContent = ACADEMY.name;
-document.getElementById('heroTagline').textContent = ACADEMY.tagline;
-document.getElementById('statMakeup').textContent = MAKEUP_STUDENTS.length;
-document.getElementById('statRetest').textContent = RETEST_STUDENTS.length;
-document.getElementById('statNotice').textContent = NOTICES.length;
-document.getElementById('mkPill').textContent = MAKEUP_STUDENTS.length;
-document.getElementById('rtPill').textContent = RETEST_STUDENTS.length;
+document.getElementById('heroTag').textContent=ACADEMY.nameEn;
+document.getElementById('heroTitle').textContent=ACADEMY.name;
+document.getElementById('heroTagline').textContent=ACADEMY.tagline;
+document.getElementById('statMakeup').textContent=MAKEUP_STUDENTS.length;
+document.getElementById('statRetest').textContent=RETEST_STUDENTS.length;
+document.getElementById('statNotice').textContent=NOTICES.length;
+document.getElementById('mkPill').textContent=MAKEUP_STUDENTS.length;
+document.getElementById('rtPill').textContent=RETEST_STUDENTS.length;
 
-// 공지
-const nl = document.getElementById('notice-list');
+const nl=document.getElementById('notice-list');
 NOTICES.forEach((n,i)=>{
   const el=document.createElement('div');
   el.className='ncard'+(i===0?' highlight open':'');
-  el.innerHTML=`
-    <div class="ntop">
-      <span class="nbadge ${n.badge}">${n.badge}</span>
-      <span class="ntitle">${n.title}</span>
-      ${n.isNew?'<span class="new-dot"></span>':''}
-    </div>
-    <div class="ndate">${n.date}</div>
-    <div class="nexpand">${n.content}</div>`;
+  el.innerHTML=`<div class="ntop"><span class="nbadge ${n.badge}">${n.badge}</span><span class="ntitle">${n.title}</span>${n.isNew?'<span class="new-dot"></span>':''}</div><div class="ndate">${n.date}</div><div class="nexpand">${n.content}</div>`;
   el.addEventListener('click',()=>el.classList.toggle('open'));
   nl.appendChild(el);
 });
 
-// 달력
-let cur={y:TODAY_Y,m:TODAY_M}, selD=null;
-function dayName(y,m,d){return['일','월','화','수','목','금','토'][new Date(y,m-1,d).getDay()];}
+let cur={y:TY,m:TM},selD=null;
+function dn(y,m,d){return['일','월','화','수','목','금','토'][new Date(y,m-1,d).getDay()];}
 
 function renderCal(){
   const g=document.getElementById('cal');
   g.innerHTML='';
   const first=new Date(cur.y,cur.m-1,1).getDay();
   const total=new Date(cur.y,cur.m,0).getDate();
-  for(let i=0;i<first;i++) g.appendChild(document.createElement('div'));
+  for(let i=0;i<first;i++)g.appendChild(document.createElement('div'));
   for(let d=1;d<=total;d++){
     const k=`${cur.y}-${cur.m}-${d}`;
-    const el=document.createElement('div'); el.className='cc';
-    if(cur.y===TODAY_Y&&cur.m===TODAY_M&&d===TODAY_D) el.classList.add('today');
-    if(selD===d) el.classList.add('sel');
-    const dn=document.createElement('div');dn.className='cdn';dn.textContent=d;el.appendChild(dn);
+    const el=document.createElement('div');el.className='cc';
+    if(cur.y===TY&&cur.m===TM&&d===TD)el.classList.add('today');
+    if(selD===d)el.classList.add('sel');
+    const cdn=document.createElement('div');cdn.className='cdn';cdn.textContent=d;el.appendChild(cdn);
     const ss=SCHEDULE[k]||[];
     if(ss.length){
       const ch=document.createElement('div');ch.className='cchips';
-      ss.slice(0,3).forEach(s=>{
-        const c=document.createElement('div');c.className='cch '+s.type;
-        c.textContent=s.name.slice(0,3);ch.appendChild(c);
-      });
+      ss.slice(0,3).forEach(s=>{const c=document.createElement('div');c.className='cch '+s.type;c.textContent=s.name.slice(0,3);ch.appendChild(c);});
       if(ss.length>3){const mo=document.createElement('div');mo.className='cch';mo.style.background='#444';mo.textContent='+'+(ss.length-3);ch.appendChild(mo);}
       el.appendChild(ch);
     }
@@ -267,114 +250,67 @@ function renderCal(){
 
 function showDetail(k,d){
   const ss=SCHEDULE[k]||[];
-  document.getElementById('ddate').textContent=`${cur.m}월 ${d}일 (${dayName(cur.y,cur.m,d)})`;
+  document.getElementById('ddate').textContent=`${cur.m}월 ${d}일 (${dn(cur.y,cur.m,d)})`;
   document.getElementById('dcnt').textContent=ss.length?`수업 ${ss.length}명`:'수업 없음';
   const body=document.getElementById('dbody');
   if(!ss.length){body.innerHTML='<div class="empty-msg">수업이 없는 날이에요</div>';return;}
-  body.innerHTML=ss.map(s=>`
-    <div class="srow">
-      <div class="savatar ${s.type}">${s.name[0]}</div>
-      <span class="sname">${s.name}</span>
-      <span class="stype-badge ${s.type}">${s.type==='makeup'?'보강':'재시험'}</span>
-      <span class="stime">${s.time}</span>
-    </div>`).join('');
+  body.innerHTML=ss.map(s=>`<div class="srow"><div class="savatar ${s.type}">${s.name[0]}</div><span class="sname">${s.name}</span><span class="stype-badge ${s.type}">${s.type==='makeup'?'보강':'재시험'}</span><span class="stime">${s.time}</span></div>`).join('');
 }
 
-function resetDetail(){
-  selD=null;
-  document.getElementById('ddate').textContent='날짜를 선택하세요';
-  document.getElementById('dcnt').textContent='';
-  document.getElementById('dbody').innerHTML='<div class="empty-msg">날짜를 탭하면 수업 학생을 확인해요</div>';
-}
-
+function resetDetail(){selD=null;document.getElementById('ddate').textContent='날짜를 선택하세요';document.getElementById('dcnt').textContent='';document.getElementById('dbody').innerHTML='<div class="empty-msg">날짜를 탭하면 수업 학생을 확인해요</div>';}
 document.getElementById('pb').addEventListener('click',()=>{cur.m--;if(cur.m<1){cur.m=12;cur.y--;}resetDetail();renderCal();});
 document.getElementById('nb').addEventListener('click',()=>{cur.m++;if(cur.m>12){cur.m=1;cur.y++;}resetDetail();renderCal();});
 
-// 자정 자동 갱신
-function scheduleAutoRefresh(){
-  const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}));
-  const ms=((24-now.getHours())*3600-(now.getMinutes()*60+now.getSeconds()))*1000;
-  setTimeout(()=>location.reload(),ms);
-}
-
-// 오버레이 — 학생별 달력 날짜 포함
 function openOverlay(type){
-  const overlay=document.getElementById('overlay');
-  const title=document.getElementById('overlayTitle');
+  document.getElementById('overlay').classList.add('active');
   const body=document.getElementById('overlayBody');
-  overlay.classList.add('active');
   body.innerHTML='';
+  const students=type==='makeup'?MAKEUP_STUDENTS:type==='retest'?RETEST_STUDENTS:null;
+  document.getElementById('overlayTitle').textContent=type==='makeup'?'보강 테스트 대상':type==='retest'?'재시험 테스트 대상':'공지사항 전체';
 
-  if(type==='makeup'||type==='retest'){
-    const students = type==='makeup' ? MAKEUP_STUDENTS : RETEST_STUDENTS;
-    title.textContent = type==='makeup' ? '보강 테스트 대상' : '재시험 테스트 대상';
-
-    // 학생별로 스케줄에서 날짜 찾기
+  if(students){
     students.forEach(s=>{
-      const schedDates=[];
+      const dates=[];
       Object.entries(SCHEDULE).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([k,arr])=>{
-        arr.forEach(entry=>{
-          if(entry.name===s.name && entry.type===type){
-            // 키 파싱: "YYYY-M-D"
-            const parts=k.split('-');
-            const y=parts[0], m=parseInt(parts[1]), d=parseInt(parts[2]);
-            const dn=['일','월','화','수','목','금','토'][new Date(parseInt(y),m-1,d).getDay()];
-            schedDates.push({label:`${m}월 ${d}일 (${dn})`, time:entry.time});
+        arr.forEach(e=>{
+          if(e.name===s.name&&e.type===type){
+            const p=k.split('-');
+            dates.push({label:`${parseInt(p[1])}월 ${parseInt(p[2])}일 (${dn(parseInt(p[0]),parseInt(p[1]),parseInt(p[2]))})`,time:e.time});
           }
         });
       });
-
       const card=document.createElement('div');
       card.className=`ov-card ${type}`;
-      let datesHtml='';
-      if(schedDates.length){
-        datesHtml=schedDates.map(sd=>`
-          <div class="ov-date-row">
-            <span class="ov-date">📅 ${sd.label}</span>
-            <span class="ov-time">${sd.time}</span>
-          </div>`).join('');
-      } else {
-        datesHtml='<div class="ov-no-sched">등록된 일정 없음</div>';
-      }
-
       card.innerHTML=`
         <div class="ov-name-row">
           <div class="ov-avatar ${type}">${s.name[0]}</div>
           <span class="ov-name">${s.name}</span>
           <span class="stype-badge ${type}">${type==='makeup'?'보강':'재시험'}</span>
         </div>
-        <div class="ov-dates">${datesHtml}</div>`;
+        <div class="ov-dates">${dates.length
+          ? dates.map(d=>`<div class="ov-date-row"><span class="ov-date">📅 ${d.label}</span><span class="ov-time">${d.time}</span></div>`).join('')
+          : '<div class="ov-no-sched">등록된 일정 없음</div>'
+        }</div>`;
       body.appendChild(card);
     });
-
-  } else if(type==='notice'){
-    title.textContent='공지사항 전체';
+  } else {
     NOTICES.forEach((n,i)=>{
       const el=document.createElement('div');
       el.className='ncard'+(i===0?' highlight open':'');
       el.style.marginBottom='6px';
-      el.innerHTML=`
-        <div class="ntop">
-          <span class="nbadge ${n.badge}">${n.badge}</span>
-          <span class="ntitle">${n.title}</span>
-          ${n.isNew?'<span class="new-dot"></span>':''}
-        </div>
-        <div class="ndate">${n.date}</div>
-        <div class="nexpand">${n.content}</div>`;
+      el.innerHTML=`<div class="ntop"><span class="nbadge ${n.badge}">${n.badge}</span><span class="ntitle">${n.title}</span>${n.isNew?'<span class="new-dot"></span>':''}</div><div class="ndate">${n.date}</div><div class="nexpand">${n.content}</div>`;
       el.addEventListener('click',()=>el.classList.toggle('open'));
       body.appendChild(el);
     });
   }
 }
-
 function closeOverlay(){document.getElementById('overlay').classList.remove('active');}
 
 renderCal();
-scheduleAutoRefresh();
+setTimeout(()=>{const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}));location.reload();},((24-now.getHours())*3600-(now.getMinutes()*60+now.getSeconds()))*1000);
 
-// 오늘 수업 자동 표시
-const todayKey=`${TODAY_Y}-${TODAY_M}-${TODAY_D}`;
-if(SCHEDULE[todayKey]){selD=TODAY_D;renderCal();showDetail(todayKey,TODAY_D);}
+const tk=`${TY}-${TM}-${TD}`;
+if(SCHEDULE[tk]){selD=TD;renderCal();showDetail(tk,TD);}
 </script>
 </body>
 </html>
