@@ -242,6 +242,38 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
     </div>
   </div>
 
+  <!-- 상승UP 자료 -->
+  <div class="section">
+    <div class="sec-title" style="color:#f59e0b;">🚀 상승UP 자료 관리</div>
+    <p style="font-size:11px;color:#444;margin-bottom:0.75rem;line-height:1.6;">학생들이 홈 화면에서 바로 열람할 수 있는 학습 자료를 등록하세요.</p>
+    <div class="form-row c2">
+      <div><label class="flabel">카테고리</label>
+        <select class="fselect" id="upCat">
+          <option value="문법">문법</option>
+          <option value="어휘">어휘</option>
+          <option value="독해">독해</option>
+          <option value="듣기">듣기</option>
+          <option value="회화">회화</option>
+          <option value="시험">시험</option>
+          <option value="기타">기타</option>
+        </select>
+      </div>
+      <div><label class="flabel">날짜</label><input class="finput2" type="date" id="upDate"></div>
+    </div>
+    <div class="form-row">
+      <div><label class="flabel">제목</label><input class="finput2" type="text" id="upTitle" placeholder="예) 5월 3주차 어휘 정리"></div>
+    </div>
+    <div class="form-row">
+      <div><label class="flabel">설명 (선택)</label><input class="finput2" type="text" id="upDesc" placeholder="자료에 대한 간단한 설명"></div>
+    </div>
+    <div class="form-row">
+      <div><label class="flabel">자료 링크 (선택) — 구글 드라이브, 유튜브 등</label><input class="finput2" type="url" id="upLink" placeholder="https://..."></div>
+    </div>
+    <button class="add-btn" style="background:#b45309;" onclick="addUpdata()">+ 자료 추가 → 즉시 반영</button>
+    <hr class="divider">
+    <div class="item-list" id="updataList"><div class="empty-note">등록된 자료 없음</div></div>
+  </div>
+
   <!-- 공지사항 -->
   <div class="section">
     <div class="sec-title blue">📢 공지사항 관리</div>
@@ -500,6 +532,50 @@ document.getElementById('admNb').addEventListener('click',()=>{
   admCur.m++;if(admCur.m>12){admCur.m=1;admCur.y++;}
   selKey=null;selD=null;document.getElementById('dayPanel').style.display='none';renderAdmCal();
 });
+
+/* ── 상승UP 자료 ── */
+let UPDATA={};
+onValue(ref(db,'updata'), snap=>{ UPDATA=snap.val()||{}; renderUpdata(); });
+
+function renderUpdata(){
+  const entries=Object.entries(UPDATA).reverse();
+  const el=document.getElementById('updataList');
+  if(!entries.length){el.innerHTML='<div class="empty-note">등록된 자료 없음</div>';return;}
+  el.innerHTML=entries.map(([fid,item])=>`
+    <div class="item-row" style="border-left-color:#f59e0b;">
+      <span class="pill-sm" style="background:#2a1e00;color:#f59e0b;">${item.category}</span>
+      <div class="item-main">
+        <div class="item-name">${item.title}</div>
+        <div class="item-dates">
+          <div class="item-date-row">
+            <span class="item-date">${item.date}</span>
+            ${item.link?`<a href="${item.link}" target="_blank" style="font-size:10px;color:#f59e0b;">🔗 링크</a>`:''}
+          </div>
+        </div>
+      </div>
+      <button class="del-btn" onclick="delUpdata('${fid}')">삭제</button>
+    </div>`).join('');
+}
+
+window.addUpdata = async function(){
+  const category=document.getElementById('upCat').value;
+  const date=document.getElementById('upDate').value.replace(/-/g,'.');
+  const title=document.getElementById('upTitle').value.trim();
+  const desc=document.getElementById('upDesc').value.trim();
+  const link=document.getElementById('upLink').value.trim();
+  if(!title){alert('제목을 입력하세요.');return;}
+  await push(ref(db,'updata'),{category,title,date,desc,link});
+  document.getElementById('upTitle').value='';
+  document.getElementById('upDesc').value='';
+  document.getElementById('upLink').value='';
+  showSaved();
+};
+
+window.delUpdata = async function(fid){
+  if(!confirm('삭제하시겠습니까?'))return;
+  await remove(ref(db,`updata/${fid}`));
+  showSaved();
+};
 
 /* ── 공지사항 ── */
 function renderNotices(){
