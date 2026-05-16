@@ -8,7 +8,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;color:#e8e8e8;min-height:100vh;}
 
-/* 로그인 */
 .login-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2rem;}
 .login-box{background:#161616;border:1px solid #2a2a2a;border-radius:16px;padding:2rem 1.8rem;width:100%;max-width:340px;}
 .login-logo{text-align:center;margin-bottom:1.5rem;}
@@ -21,15 +20,13 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .login-btn:hover{background:#1470C0;}
 .login-err{color:#ff6b6b;font-size:12px;margin-top:8px;text-align:center;display:none;}
 
-/* 관리자 메인 */
 .admin-wrap{display:none;max-width:640px;margin:0 auto;padding:1.5rem 1rem 3rem;}
 .admin-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;}
 .admin-hdr h1{font-size:15px;font-weight:500;color:#5b9bd5;}
 .logout-btn{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:8px;padding:5px 14px;color:#666;font-size:12px;cursor:pointer;font-family:inherit;}
-.logout-btn:hover{background:#252525;}
 
 .section{background:#161616;border-radius:14px;padding:1.1rem;margin-bottom:10px;}
-.sec-title{font-size:12px;font-weight:500;margin-bottom:0.9rem;letter-spacing:0.3px;}
+.sec-title{font-size:12px;font-weight:500;margin-bottom:0.9rem;}
 .sec-title.teal{color:#2dd4bf;}
 .sec-title.rose{color:#fca5a5;}
 .sec-title.blue{color:#5b9bd5;}
@@ -37,13 +34,12 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .form-row{display:grid;gap:8px;margin-bottom:9px;}
 .form-row.c2{grid-template-columns:1fr 1fr;}
 .form-row.c3{grid-template-columns:1fr 1fr 1fr;}
-.form-row.c4{grid-template-columns:1fr 1fr 1fr 1fr;}
 
 .add-btn{border:none;border-radius:8px;padding:0.5rem 1.1rem;color:#fff;font-size:12px;font-weight:500;cursor:pointer;font-family:inherit;}
 .add-btn.teal{background:#0d9488;} .add-btn.teal:hover{background:#0f766e;}
 .add-btn.rose{background:#dc2626;} .add-btn.rose:hover{background:#b91c1c;}
 .add-btn.blue{background:#1a5fa8;} .add-btn.blue:hover{background:#1470C0;}
-.add-btn.export{background:#0f766e;width:100%;margin-top:8px;} .add-btn.export:hover{background:#0d6b64;}
+.add-btn.export{background:#0f766e;width:100%;margin-top:8px;}
 
 .del-btn{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:6px;padding:3px 9px;color:#e24b4a;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;}
 .del-btn:hover{background:#2a1515;}
@@ -67,12 +63,11 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .divider{border:none;border-top:1px solid #1e1e1e;margin:0.7rem 0;}
 .empty-note{font-size:12px;color:#333;padding:4px;}
 
-/* 달력 (관리자) */
+/* 달력 */
 .cal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;}
 .cal-lbl{font-size:13px;font-weight:500;color:#e0e0e0;}
 .cal-btns{display:flex;gap:5px;}
 .cal-btn{background:#1e1e1e;border:1px solid #2a2a2a;border-radius:7px;padding:2px 10px;cursor:pointer;font-size:13px;color:#5b9bd5;font-family:inherit;}
-.cal-btn:hover{background:#252525;}
 .cal-days{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:3px;}
 .cdl{text-align:center;font-size:10px;color:#444;padding:2px 0;}
 .cdl.s{color:#c0392b;} .cdl.sa{color:#3a7bd5;}
@@ -89,7 +84,6 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .cch.makeup{background:#0d9488;}
 .cch.retest{background:#dc2626;}
 
-/* 날짜 패널 */
 .day-panel{background:#0d1e2e;border-radius:10px;padding:0.85rem 0.9rem;margin-top:0.5rem;border:1px solid #1a3050;}
 .day-panel-title{font-size:12px;font-weight:500;color:#7ab0e8;margin-bottom:0.7rem;}
 .day-students{display:flex;flex-direction:column;gap:5px;margin-bottom:0.7rem;}
@@ -97,14 +91,14 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 .day-sname{flex:1;font-size:12px;color:#e0e0e0;}
 .day-stime{font-size:11px;color:#5b9bd5;}
 
+.save-indicator{font-size:11px;color:#2dd4bf;text-align:center;padding:6px;display:none;}
+
 .back-link{text-align:center;margin-top:0.8rem;}
 .back-link a{font-size:12px;color:#333;text-decoration:none;}
-.back-link a:hover{color:#555;}
 </style>
 </head>
 <body>
 
-<!-- 로그인 -->
 <div class="login-wrap" id="loginWrap">
   <div class="login-box">
     <div class="login-logo">
@@ -112,7 +106,7 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
       <p>Brickceline English Academy</p>
     </div>
     <label class="flabel">비밀번호</label>
-    <input class="finput" type="password" id="pwInput" placeholder="비밀번호 입력"
+    <input class="finput" type="password" id="pwInput" placeholder="관리자 비밀번호"
       onkeydown="if(event.key==='Enter')doLogin()">
     <button class="login-btn" onclick="doLogin()">로그인</button>
     <div class="login-err" id="loginErr">비밀번호가 올바르지 않습니다.</div>
@@ -122,60 +116,42 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
   </div>
 </div>
 
-<!-- 관리자 메인 -->
 <div class="admin-wrap" id="adminWrap">
   <div class="admin-hdr">
     <h1>🛠 관리자 — Brickceline</h1>
     <button class="logout-btn" onclick="doLogout()">로그아웃</button>
   </div>
+  <div class="save-indicator" id="saveIndicator">✅ Firebase에 저장되었습니다</div>
 
-  <!-- 보강 테스트 학생 -->
+  <!-- 보강 -->
   <div class="section">
-    <div class="sec-title teal">● 보강 테스트 학생 관리</div>
+    <div class="sec-title teal">● 보강 테스트 학생</div>
     <div class="form-row c3">
-      <div>
-        <label class="flabel">학생 이름</label>
-        <input class="finput" type="text" id="mkName" placeholder="이름">
-      </div>
-      <div>
-        <label class="flabel">날짜</label>
-        <input class="finput" type="date" id="mkDate">
-      </div>
-      <div>
-        <label class="flabel">시간</label>
-        <input class="finput" type="time" id="mkTime" value="14:00">
-      </div>
+      <div><label class="flabel">학생 이름</label><input class="finput" type="text" id="mkName" placeholder="이름"></div>
+      <div><label class="flabel">날짜</label><input class="finput" type="date" id="mkDate"></div>
+      <div><label class="flabel">시간</label><input class="finput" type="time" id="mkTime" value="14:00"></div>
     </div>
-    <button class="add-btn teal" onclick="addMakeup()">+ 보강 추가 → 달력 반영</button>
+    <button class="add-btn teal" onclick="addMakeup()">+ 추가 → 즉시 반영</button>
     <hr class="divider">
     <div class="item-list" id="mkList"></div>
   </div>
 
-  <!-- 재시험 테스트 학생 -->
+  <!-- 재시험 -->
   <div class="section">
-    <div class="sec-title rose">● 재시험 테스트 학생 관리</div>
+    <div class="sec-title rose">● 재시험 테스트 학생</div>
     <div class="form-row c3">
-      <div>
-        <label class="flabel">학생 이름</label>
-        <input class="finput" type="text" id="rtName" placeholder="이름">
-      </div>
-      <div>
-        <label class="flabel">날짜</label>
-        <input class="finput" type="date" id="rtDate">
-      </div>
-      <div>
-        <label class="flabel">시간</label>
-        <input class="finput" type="time" id="rtTime" value="14:00">
-      </div>
+      <div><label class="flabel">학생 이름</label><input class="finput" type="text" id="rtName" placeholder="이름"></div>
+      <div><label class="flabel">날짜</label><input class="finput" type="date" id="rtDate"></div>
+      <div><label class="flabel">시간</label><input class="finput" type="time" id="rtTime" value="14:00"></div>
     </div>
-    <button class="add-btn rose" onclick="addRetest()">+ 재시험 추가 → 달력 반영</button>
+    <button class="add-btn rose" onclick="addRetest()">+ 추가 → 즉시 반영</button>
     <hr class="divider">
     <div class="item-list" id="rtList"></div>
   </div>
 
-  <!-- 달력 스케줄 확인 & 추가 -->
+  <!-- 달력 -->
   <div class="section">
-    <div class="sec-title blue">📅 달력 스케줄 확인 & 직접 추가</div>
+    <div class="sec-title blue">📅 달력 스케줄 확인 & 추가</div>
     <div class="cal-hdr">
       <span class="cal-lbl" id="adm-lbl"></span>
       <div class="cal-btns">
@@ -188,26 +164,13 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
       <div class="cdl">수</div><div class="cdl">목</div><div class="cdl">금</div><div class="cdl sa">토</div>
     </div>
     <div class="cal-grid" id="adm-cal"></div>
-
     <div class="day-panel" id="dayPanel" style="display:none;">
       <div class="day-panel-title" id="dayTitle"></div>
       <div class="day-students" id="dayStuList"></div>
       <div class="form-row c3">
-        <div>
-          <label class="flabel">학생 이름</label>
-          <input class="finput" type="text" id="scName" placeholder="이름">
-        </div>
-        <div>
-          <label class="flabel">구분</label>
-          <select class="fselect" id="scType">
-            <option value="makeup">보강</option>
-            <option value="retest">재시험</option>
-          </select>
-        </div>
-        <div>
-          <label class="flabel">시간</label>
-          <input class="finput" type="time" id="scTime" value="14:00">
-        </div>
+        <div><label class="flabel">학생 이름</label><input class="finput" type="text" id="scName" placeholder="이름"></div>
+        <div><label class="flabel">구분</label><select class="fselect" id="scType"><option value="makeup">보강</option><option value="retest">재시험</option></select></div>
+        <div><label class="flabel">시간</label><input class="finput" type="time" id="scTime" value="14:00"></div>
       </div>
       <button class="add-btn blue" style="width:100%;" onclick="addToDay()">+ 이 날짜에 추가</button>
     </div>
@@ -215,206 +178,168 @@ body{font-family:'Malgun Gothic','맑은 고딕',sans-serif;background:#0f0f0f;c
 
   <!-- 공지사항 -->
   <div class="section">
-    <div class="sec-title blue">📢 공지사항 관리</div>
+    <div class="sec-title blue">📢 공지사항</div>
     <div class="form-row c2">
-      <div>
-        <label class="flabel">분류</label>
-        <select class="fselect" id="nBadge">
-          <option value="중요">중요</option>
-          <option value="일반">일반</option>
-          <option value="수업">수업</option>
-        </select>
-      </div>
-      <div>
-        <label class="flabel">날짜</label>
-        <input class="finput" type="date" id="nDate">
-      </div>
+      <div><label class="flabel">분류</label><select class="fselect" id="nBadge"><option value="중요">중요</option><option value="일반">일반</option><option value="수업">수업</option></select></div>
+      <div><label class="flabel">날짜</label><input class="finput" type="date" id="nDate"></div>
     </div>
-    <div class="form-row">
-      <div>
-        <label class="flabel">제목</label>
-        <input class="finput" type="text" id="nTitle" placeholder="공지 제목">
-      </div>
-    </div>
-    <div class="form-row">
-      <div>
-        <label class="flabel">내용</label>
-        <input class="finput" type="text" id="nContent" placeholder="공지 내용">
-      </div>
-    </div>
+    <div class="form-row"><div><label class="flabel">제목</label><input class="finput" type="text" id="nTitle" placeholder="공지 제목"></div></div>
+    <div class="form-row"><div><label class="flabel">내용</label><input class="finput" type="text" id="nContent" placeholder="공지 내용"></div></div>
     <button class="add-btn blue" onclick="addNotice()">+ 공지 추가</button>
     <hr class="divider">
     <div class="item-list" id="noticeList"></div>
   </div>
 
-  <!-- 내보내기 -->
-  <div class="section">
-    <div class="sec-title blue">📋 data.js 내보내기</div>
-    <p style="font-size:11px;color:#444;margin-bottom:0.7rem;line-height:1.6;">
-      ① 복사 → ② VSCode에서 data.js 열기 → ③ ⌘A → ④ ⌘V → ⑤ ⌘S → ⑥ GitHub 업로드
-    </p>
-    <textarea id="exportCode" readonly
-      style="width:100%;height:220px;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:8px;
-             padding:0.75rem;color:#5b9bd5;font-size:11px;font-family:monospace;resize:vertical;outline:none;"></textarea>
-    <button class="add-btn export" onclick="copyCode()">📋 클립보드에 복사하기</button>
-  </div>
-
   <div class="back-link"><a href="index.html">← 학원 홈으로</a></div>
 </div>
 
-<script src="data.js"></script>
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, onValue, push, remove, set } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAmJonnbBmIwdhcEonjEYE_NesFYfHT460",
+  authDomain: "brickceline-79e8d.firebaseapp.com",
+  databaseURL: "https://brickceline-79e8d-default-rtdb.firebaseio.com",
+  projectId: "brickceline-79e8d",
+  storageBucket: "brickceline-79e8d.firebasestorage.app",
+  messagingSenderId: "297541019898",
+  appId: "1:297541019898:web:d1b8439294b7ea73894143"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const ADMIN_PW = "2548";
 const KST=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'}));
 const TY=KST.getFullYear(),TM=KST.getMonth()+1,TD=KST.getDate();
 
-let localMakeup  = JSON.parse(JSON.stringify(MAKEUP_STUDENTS));
-let localRetest  = JSON.parse(JSON.stringify(RETEST_STUDENTS));
-let localNotices = JSON.parse(JSON.stringify(NOTICES));
-let localSched   = JSON.parse(JSON.stringify(SCHEDULE));
+let MAKEUP={}, RETEST={}, NOTICES={}, SCHEDULE={};
 let admCur={y:TY,m:TM}, selKey=null, selD=null;
 
-/* ── 로그인 ── */
-function doLogin(){
-  if(document.getElementById('pwInput').value===ACADEMY.adminPassword){
+window.doLogin = function(){
+  if(document.getElementById('pwInput').value===ADMIN_PW){
     document.getElementById('loginWrap').style.display='none';
     document.getElementById('adminWrap').style.display='block';
     const t=new Date().toISOString().slice(0,10);
     document.getElementById('mkDate').value=t;
     document.getElementById('rtDate').value=t;
     document.getElementById('nDate').value=t;
-    renderAll();
+    initListeners();
   } else {
     document.getElementById('loginErr').style.display='block';
   }
-}
-function doLogout(){
+};
+window.doLogout = function(){
   document.getElementById('loginWrap').style.display='flex';
   document.getElementById('adminWrap').style.display='none';
   document.getElementById('pwInput').value='';
-  document.getElementById('loginErr').style.display='none';
-}
-function renderAll(){renderMakeup();renderRetest();renderAdmCal();renderNotices();exportCode();}
+};
 
-/* ── 날짜 키 변환 ── */
-function dateToKey(dateStr){
-  const p=dateStr.split('-');
-  return `${p[0]}-${parseInt(p[1])}-${parseInt(p[2])}`;
-}
-function keyToLabel(k){
-  const p=k.split('-');
-  const m=parseInt(p[1]),d=parseInt(p[2]);
-  const day=['일','월','화','수','목','금','토'][new Date(parseInt(p[0]),m-1,d).getDay()];
-  return `${m}월 ${d}일 (${day})`;
+function showSaved(){
+  const el=document.getElementById('saveIndicator');
+  el.style.display='block';
+  setTimeout(()=>el.style.display='none',2000);
 }
 
-/* ── 보강 학생 ── */
+function initListeners(){
+  onValue(ref(db,'makeup'),snap=>{MAKEUP=snap.val()||{};renderMakeup();});
+  onValue(ref(db,'retest'),snap=>{RETEST=snap.val()||{};renderRetest();});
+  onValue(ref(db,'notices'),snap=>{NOTICES=snap.val()||{};renderNotices();});
+  onValue(ref(db,'schedule'),snap=>{SCHEDULE=snap.val()||{};renderAdmCal();if(selKey)showDayPanel(selKey,selD);});
+}
+
+function dn(y,m,d){return['일','월','화','수','목','금','토'][new Date(y,m-1,d).getDay()];}
+function dateToKey(s){const p=s.split('-');return`${p[0]}-${parseInt(p[1])}-${parseInt(p[2])}`;}
+function keyToLabel(k){const p=k.split('-');const m=parseInt(p[1]),d=parseInt(p[2]);return`${m}월 ${d}일 (${dn(parseInt(p[0]),m,d)})`;}
+
+// 보강
 function renderMakeup(){
-  // 학생별로 스케줄 날짜 그룹핑
-  const grouped={};
-  localMakeup.forEach(s=>{if(!grouped[s.name])grouped[s.name]=[];});
-  Object.entries(localSched).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([k,arr])=>{
-    arr.forEach(e=>{if(e.type==='makeup'&&grouped[e.name]!==undefined)grouped[e.name].push({key:k,time:e.time});});
-  });
-
+  const entries=Object.entries(MAKEUP);
   const el=document.getElementById('mkList');
-  el.innerHTML=localMakeup.length
-    ? localMakeup.map((s,i)=>{
-        const dates=grouped[s.name]||[];
-        const datesHtml=dates.length
-          ? dates.map(d=>`<div class="item-date-row"><span class="item-date">📅 ${keyToLabel(d.key)}</span><span class="item-time">${d.time}</span></div>`).join('')
-          : '<div style="font-size:11px;color:#333;">일정 없음</div>';
-        return `<div class="item-row teal">
-          <span class="pill-sm teal">보강</span>
-          <div class="item-main"><div class="item-name">${s.name}</div><div class="item-dates">${datesHtml}</div></div>
-          <button class="del-btn" onclick="delMakeup(${i})">삭제</button>
-        </div>`;
-      }).join('')
-    : '<div class="empty-note">등록된 학생 없음</div>';
+  if(!entries.length){el.innerHTML='<div class="empty-note">없음</div>';return;}
+  el.innerHTML=entries.map(([fid,s])=>{
+    const dates=[];
+    Object.entries(SCHEDULE).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([k,obj])=>{
+      Object.values(obj||{}).forEach(e=>{if(e.name===s.name&&e.type==='makeup')dates.push({label:keyToLabel(k),time:e.time});});
+    });
+    return`<div class="item-row teal"><span class="pill-sm teal">보강</span>
+      <div class="item-main"><div class="item-name">${s.name}</div>
+      <div class="item-dates">${dates.length?dates.map(d=>`<div class="item-date-row"><span class="item-date">📅 ${d.label}</span><span class="item-time">${d.time}</span></div>`).join(''):'<div style="font-size:11px;color:#333;">일정 없음</div>'}</div></div>
+      <button class="del-btn" onclick="delMakeup('${fid}','${s.name}')">삭제</button></div>`;
+  }).join('');
 }
 
-function addMakeup(){
+window.addMakeup = async function(){
   const name=document.getElementById('mkName').value.trim();
   const date=document.getElementById('mkDate').value;
   const time=document.getElementById('mkTime').value;
   if(!name){alert('이름을 입력하세요.');return;}
-  // 학생 목록에 없으면 추가
-  if(!localMakeup.find(s=>s.name===name)) localMakeup.push({name});
-  // 날짜가 있으면 스케줄에도 추가
+  await push(ref(db,'makeup'),{name});
   if(date){
     const key=dateToKey(date);
-    if(!localSched[key]) localSched[key]=[];
-    localSched[key].push({name,type:'makeup',time});
+    await push(ref(db,`schedule/${key}`),{name,type:'makeup',time});
   }
   document.getElementById('mkName').value='';
-  renderAll();
-}
-function delMakeup(i){
+  showSaved();
+};
+
+window.delMakeup = async function(fid,name){
   if(!confirm('삭제하시겠습니까?'))return;
-  const name=localMakeup[i].name;
-  localMakeup.splice(i,1);
-  // 스케줄에서도 해당 학생 보강 제거
-  Object.keys(localSched).forEach(k=>{
-    localSched[k]=localSched[k].filter(e=>!(e.name===name&&e.type==='makeup'));
-    if(!localSched[k].length)delete localSched[k];
+  await remove(ref(db,`makeup/${fid}`));
+  // 스케줄에서도 제거
+  Object.entries(SCHEDULE).forEach(async([k,obj])=>{
+    Object.entries(obj||{}).forEach(async([sid,e])=>{
+      if(e.name===name&&e.type==='makeup') await remove(ref(db,`schedule/${k}/${sid}`));
+    });
   });
-  renderAll();
-}
+  showSaved();
+};
 
-/* ── 재시험 학생 ── */
+// 재시험
 function renderRetest(){
-  const grouped={};
-  localRetest.forEach(s=>{if(!grouped[s.name])grouped[s.name]=[];});
-  Object.entries(localSched).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([k,arr])=>{
-    arr.forEach(e=>{if(e.type==='retest'&&grouped[e.name]!==undefined)grouped[e.name].push({key:k,time:e.time});});
-  });
-
+  const entries=Object.entries(RETEST);
   const el=document.getElementById('rtList');
-  el.innerHTML=localRetest.length
-    ? localRetest.map((s,i)=>{
-        const dates=grouped[s.name]||[];
-        const datesHtml=dates.length
-          ? dates.map(d=>`<div class="item-date-row"><span class="item-date">📅 ${keyToLabel(d.key)}</span><span class="item-time">${d.time}</span></div>`).join('')
-          : '<div style="font-size:11px;color:#333;">일정 없음</div>';
-        return `<div class="item-row rose">
-          <span class="pill-sm rose">재시험</span>
-          <div class="item-main"><div class="item-name">${s.name}</div><div class="item-dates">${datesHtml}</div></div>
-          <button class="del-btn" onclick="delRetest(${i})">삭제</button>
-        </div>`;
-      }).join('')
-    : '<div class="empty-note">등록된 학생 없음</div>';
+  if(!entries.length){el.innerHTML='<div class="empty-note">없음</div>';return;}
+  el.innerHTML=entries.map(([fid,s])=>{
+    const dates=[];
+    Object.entries(SCHEDULE).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([k,obj])=>{
+      Object.values(obj||{}).forEach(e=>{if(e.name===s.name&&e.type==='retest')dates.push({label:keyToLabel(k),time:e.time});});
+    });
+    return`<div class="item-row rose"><span class="pill-sm rose">재시험</span>
+      <div class="item-main"><div class="item-name">${s.name}</div>
+      <div class="item-dates">${dates.length?dates.map(d=>`<div class="item-date-row"><span class="item-date">📅 ${d.label}</span><span class="item-time">${d.time}</span></div>`).join(''):'<div style="font-size:11px;color:#333;">일정 없음</div>'}</div></div>
+      <button class="del-btn" onclick="delRetest('${fid}','${s.name}')">삭제</button></div>`;
+  }).join('');
 }
 
-function addRetest(){
+window.addRetest = async function(){
   const name=document.getElementById('rtName').value.trim();
   const date=document.getElementById('rtDate').value;
   const time=document.getElementById('rtTime').value;
   if(!name){alert('이름을 입력하세요.');return;}
-  if(!localRetest.find(s=>s.name===name)) localRetest.push({name});
+  await push(ref(db,'retest'),{name});
   if(date){
     const key=dateToKey(date);
-    if(!localSched[key]) localSched[key]=[];
-    localSched[key].push({name,type:'retest',time});
+    await push(ref(db,`schedule/${key}`),{name,type:'retest',time});
   }
   document.getElementById('rtName').value='';
-  renderAll();
-}
-function delRetest(i){
+  showSaved();
+};
+
+window.delRetest = async function(fid,name){
   if(!confirm('삭제하시겠습니까?'))return;
-  const name=localRetest[i].name;
-  localRetest.splice(i,1);
-  Object.keys(localSched).forEach(k=>{
-    localSched[k]=localSched[k].filter(e=>!(e.name===name&&e.type==='retest'));
-    if(!localSched[k].length)delete localSched[k];
+  await remove(ref(db,`retest/${fid}`));
+  Object.entries(SCHEDULE).forEach(async([k,obj])=>{
+    Object.entries(obj||{}).forEach(async([sid,e])=>{
+      if(e.name===name&&e.type==='retest') await remove(ref(db,`schedule/${k}/${sid}`));
+    });
   });
-  renderAll();
-}
+  showSaved();
+};
 
-/* ── 관리자 달력 ── */
-function dn(y,m,d){return['일','월','화','수','목','금','토'][new Date(y,m-1,d).getDay()];}
-
+// 달력
 function renderAdmCal(){
-  const g=document.getElementById('adm-cal');
-  g.innerHTML='';
+  const g=document.getElementById('adm-cal');g.innerHTML='';
   const first=new Date(admCur.y,admCur.m-1,1).getDay();
   const total=new Date(admCur.y,admCur.m,0).getDate();
   for(let i=0;i<first;i++)g.appendChild(document.createElement('div'));
@@ -424,7 +349,7 @@ function renderAdmCal(){
     if(admCur.y===TY&&admCur.m===TM&&d===TD)el.classList.add('today');
     if(selD===d)el.classList.add('sel');
     const cdn=document.createElement('div');cdn.className='cdn';cdn.textContent=d;el.appendChild(cdn);
-    const ss=localSched[k]||[];
+    const ss=SCHEDULE[k]?Object.values(SCHEDULE[k]):[];
     if(ss.length){
       const ch=document.createElement('div');ch.className='cchips';
       ss.slice(0,3).forEach(s=>{const c=document.createElement('div');c.className='cch '+s.type;c.textContent=s.name.slice(0,3);ch.appendChild(c);});
@@ -438,103 +363,63 @@ function renderAdmCal(){
 }
 
 function showDayPanel(k,d){
-  const panel=document.getElementById('dayPanel');
-  panel.style.display='block';
+  document.getElementById('dayPanel').style.display='block';
   document.getElementById('dayTitle').textContent=`${admCur.m}월 ${d}일 (${dn(admCur.y,admCur.m,d)}) 수업`;
-  const ss=localSched[k]||[];
+  const ss=SCHEDULE[k]?Object.entries(SCHEDULE[k]):[];
   const sl=document.getElementById('dayStuList');
   sl.innerHTML=ss.length
-    ? ss.map((s,si)=>`
-        <div class="day-srow">
-          <span class="pill-sm ${s.type==='makeup'?'teal':'rose'}">${s.type==='makeup'?'보강':'재시험'}</span>
-          <span class="day-sname">${s.name}</span>
-          <span class="day-stime">${s.time}</span>
-          <button class="del-btn" onclick="delFromDay('${k}',${si})">삭제</button>
-        </div>`).join('')
-    : '<div class="empty-note" style="color:#333;">수업 없음 — 아래에서 추가</div>';
+    ? ss.map(([sid,s])=>`<div class="day-srow"><span class="pill-sm ${s.type==='makeup'?'teal':'rose'}">${s.type==='makeup'?'보강':'재시험'}</span><span class="day-sname">${s.name}</span><span class="day-stime">${s.time}</span><button class="del-btn" onclick="delFromDay('${k}','${sid}')">삭제</button></div>`).join('')
+    : '<div class="empty-note" style="color:#444;">수업 없음</div>';
 }
 
-function addToDay(){
-  if(!selKey){alert('달력에서 날짜를 먼저 선택하세요.');return;}
+window.addToDay = async function(){
+  if(!selKey){alert('날짜를 먼저 선택하세요.');return;}
   const name=document.getElementById('scName').value.trim();
   const type=document.getElementById('scType').value;
   const time=document.getElementById('scTime').value;
-  if(!name){alert('학생 이름을 입력하세요.');return;}
-  if(!localSched[selKey])localSched[selKey]=[];
-  localSched[selKey].push({name,type,time});
+  if(!name){alert('이름을 입력하세요.');return;}
+  await push(ref(db,`schedule/${selKey}`),{name,type,time});
   document.getElementById('scName').value='';
-  renderAdmCal();showDayPanel(selKey,selD);
-  renderMakeup();renderRetest();exportCode();
-}
+  showSaved();
+};
 
-function delFromDay(k,si){
-  if(!confirm('삭제하시겠습니까?'))return;
-  localSched[k].splice(si,1);
-  if(!localSched[k].length)delete localSched[k];
-  renderAdmCal();showDayPanel(k,selD);
-  renderMakeup();renderRetest();exportCode();
-}
+window.delFromDay = async function(k,sid){
+  if(!confirm('삭제?'))return;
+  await remove(ref(db,`schedule/${k}/${sid}`));
+  showSaved();
+};
 
-document.getElementById('adm-pb').addEventListener('click',()=>{
-  admCur.m--;if(admCur.m<1){admCur.m=12;admCur.y--;}
-  selKey=null;selD=null;document.getElementById('dayPanel').style.display='none';renderAdmCal();
-});
-document.getElementById('adm-nb').addEventListener('click',()=>{
-  admCur.m++;if(admCur.m>12){admCur.m=1;admCur.y++;}
-  selKey=null;selD=null;document.getElementById('dayPanel').style.display='none';renderAdmCal();
-});
+document.getElementById('adm-pb').addEventListener('click',()=>{admCur.m--;if(admCur.m<1){admCur.m=12;admCur.y--;}selKey=null;selD=null;document.getElementById('dayPanel').style.display='none';renderAdmCal();});
+document.getElementById('adm-nb').addEventListener('click',()=>{admCur.m++;if(admCur.m>12){admCur.m=1;admCur.y++;}selKey=null;selD=null;document.getElementById('dayPanel').style.display='none';renderAdmCal();});
 
-/* ── 공지사항 ── */
+// 공지
 function renderNotices(){
-  document.getElementById('noticeList').innerHTML=localNotices.length
-    ? localNotices.map((n,i)=>`
-        <div class="item-row blue">
-          <span class="pill-sm blue">${n.badge}</span>
-          <div class="item-main"><div class="item-name">${n.title}</div><div class="item-dates"><div class="item-date-row"><span class="item-date">${n.date}</span></div></div></div>
-          <button class="del-btn" onclick="delNotice(${i})">삭제</button>
-        </div>`).join('')
-    : '<div class="empty-note">공지 없음</div>';
+  const entries=Object.entries(NOTICES).reverse();
+  const el=document.getElementById('noticeList');
+  if(!entries.length){el.innerHTML='<div class="empty-note">없음</div>';return;}
+  el.innerHTML=entries.map(([fid,n])=>`
+    <div class="item-row blue"><span class="pill-sm blue">${n.badge}</span>
+    <div class="item-main"><div class="item-name">${n.title}</div><div class="item-dates"><div class="item-date-row"><span class="item-date">${n.date}</span></div></div></div>
+    <button class="del-btn" onclick="delNotice('${fid}')">삭제</button></div>`).join('');
 }
-function addNotice(){
+
+window.addNotice = async function(){
   const badge=document.getElementById('nBadge').value;
   const date=document.getElementById('nDate').value.replace(/-/g,'.');
   const title=document.getElementById('nTitle').value.trim();
   const content=document.getElementById('nContent').value.trim();
   if(!title){alert('제목을 입력하세요.');return;}
-  localNotices.unshift({id:Date.now(),badge,title,date,content,isNew:true});
+  await push(ref(db,'notices'),{badge,title,date,content,isNew:true});
   document.getElementById('nTitle').value='';
   document.getElementById('nContent').value='';
-  renderAll();
-}
-function delNotice(i){if(!confirm('삭제?'))return;localNotices.splice(i,1);renderAll();}
-
-/* ── 내보내기 ── */
-function exportCode(){
-  document.getElementById('exportCode').value=
-`// ============================================================
-//  Brickceline 영어학원 데이터 파일
-// ============================================================
-
-const ACADEMY = {
-  name: "${ACADEMY.name}",
-  nameEn: "${ACADEMY.nameEn}",
-  tagline: "${ACADEMY.tagline}",
-  adminPassword: "${ACADEMY.adminPassword}"
+  showSaved();
 };
 
-const MAKEUP_STUDENTS = ${JSON.stringify(localMakeup,null,2)};
-
-const RETEST_STUDENTS = ${JSON.stringify(localRetest,null,2)};
-
-const NOTICES = ${JSON.stringify(localNotices,null,2)};
-
-const SCHEDULE = ${JSON.stringify(localSched,null,2)};`;
-}
-function copyCode(){
-  const ta=document.getElementById('exportCode');
-  ta.select();document.execCommand('copy');
-  alert('복사 완료!\n\nVSCode에서 data.js 열기\n→ ⌘A → ⌘V → ⌘S\n→ GitHub 업로드');
-}
+window.delNotice = async function(fid){
+  if(!confirm('삭제?'))return;
+  await remove(ref(db,`notices/${fid}`));
+  showSaved();
+};
 </script>
 </body>
 </html>
